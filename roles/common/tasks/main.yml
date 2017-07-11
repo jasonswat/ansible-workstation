@@ -1,0 +1,4 @@
+- include: ubuntu-common.yml
+  when: ansible_distribution == "Ubuntu"
+- include: darwin-common.yml
+  when: ansible_os_family == 'Darwin'

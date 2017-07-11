@@ -1,0 +1,17 @@
+---
+- name: install brew packages
+  homebrew: name={{ item }} state=present
+  with_items:
+    - ansible
+    - autoconf
+    - automake
+    - awscli
+    - curl
+    - jq 
+    - kapacitor 
+    - kubernetes-cli 
+    - kubernetes-helm
+    - python3
+    - mas 
+    - node 
+    - ngrep 

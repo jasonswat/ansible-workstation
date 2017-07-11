@@ -1,0 +1,11 @@
+##
+# Ansible playbook to configure desktop 
+#
+
+---
+- hosts: local
+  user: 'xjs5'
+
+  roles:
+    - common       # common packages
+    - terraform    # Install's terraform 

@@ -1,0 +1,93 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+#sudo: yes
+
+# for 1.6 this ansible
+- name: Create en_US.UTF-8 locale
+  locale_gen: name=en_US.UTF-8 state=present
+
+- name: NTP | Install
+  apt: name=ntp state=present
+  tags: ntp
+
+- name: NTP | Configure ntp file
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  tags: ntp
+  notify: Restart ntp
+
+- name: NTP | Start the ntp service
+  service: name=ntp state=started enabled=true
+  tags: ntp
+
+- name: Linux | Update cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Linux | Upgrade
+  apt: upgrade=dist
+
+- name: Package | Install lists packages
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - ack-grep
+    - alsa-base
+    - alsa-utils
+    - aptitude
+    - bash-completion
+    - bluez
+    - bluez-alsa
+    - build-essential
+    - bzip2
+    - curl
+    - dkms
+    - fglrx
+    - firefox
+    - git
+    - git-core
+    - git-flow
+    - git-email
+    - git-extras
+    - git-svn
+    - gstreamer0.10-alsa
+    - gstreamer0.10-plugins-base-apps
+    - gstreamer0.10-pulseaudio
+    - gstreamer1.0-alsa
+    - gstreamer1.0-plugins-base-apps
+    - gstreamer1.0-pulseaudio
+    - gzip
+    - htop
+    - linux-headers-generic
+    - nfs-kernel-server
+    - nfs-common
+    - nmap
+    - openssh-server
+    - pwgen
+    - pulseaudio
+    - tmux
+    - terminator
+    - tcpdump
+    - tar
+    - unzip
+    - ubuntu-restricted-extras
+    - vpnc
+    - vlc
+    - wireless-tools
+    - wget
+    - wpasupplicant
+    - xorg
+    - xubuntu-desktop
+    - zsh
+
+- name: Package | Remove Packages 
+  apt: pkg={{ item }} state=absent
+  with_items:
+    - libreoffice-core 
+    - libreoffice-common 
+    - gnome-mines
+    - gnome-sudoku
+    - gnome-mahjongg
+    - gnome-screensaver
+    - unity-webapps-common 
+    - aisleriot
+    - xscreensaver
+    - xscreensaver-data
