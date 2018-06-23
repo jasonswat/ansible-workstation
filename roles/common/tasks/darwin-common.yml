@@ -7,11 +7,42 @@
     - automake
     - awscli
     - curl
-    - jq 
-    - kapacitor 
-    - kubernetes-cli 
+    - elixir
+    - git
+    - influxdb
+    - jq
+    - kafkacat
+    - kapacitor
+    - ktail # kafka-tail
+    - kubernetes-cli
     - kubernetes-helm
     - python3
-    - mas 
-    - node 
-    - ngrep 
+    - mas
+    - node
+    - ngrep
+    - packer
+    - pssh
+    - the_silver_searcher
+    - tiger-vnc
+
+- name: install homebrew cask packages
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - atom
+    - docker
+    - docker-toolbox
+    - firefox
+    - google-chrome
+    - gimp
+    - handbrake
+    - hipchat
+    - iterm2
+    - keepassx
+    - logitech-myharmony
+    - postman
+    - paintbrush
+    - slack
+    - sonos
+    - virtualbox
+    - vlc
+    - xquartz

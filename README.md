@@ -1,4 +1,4 @@
-Ansible Ubuntu Workstation
+Ansible Workstation
 =======================
 
 This is an ansible playbook to configure an ubuntu 14.04 workstation.
@@ -24,23 +24,25 @@ It removes some packages like libreoffice and games
 Requirements
 -----------
 
-    * git,
-    * ansible
+####Clone Repo
 
-Clone Repo
-----------
 
 ```
 git clone 
 ```
 
-Install Ansible
----------------
+####Install Ansible
 
 ```
 cd ansible-ubuntu
 
 ./ansible_install.sh
+```
+
+####Install required galaxy playbooks:
+
+```
+ansible-galaxy install -r requirements.yml
 ```
 
 Customize
@@ -56,7 +58,7 @@ for example:
   roles:
     - awscli
     - common       # common packages
-    - chrome
+    - chrome     # chrome canary (develeoper version)
     - conky
     - desktop
 #    - docker

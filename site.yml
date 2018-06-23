@@ -4,8 +4,10 @@
 
 ---
 - hosts: local
-  user: 'xjs5'
 
   roles:
     - common       # common packages
     - terraform    # Install's terraform 
+      #- mas  # Mac Apps Store apps
+    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store apps
+   
