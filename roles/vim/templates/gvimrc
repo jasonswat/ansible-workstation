@@ -1,0 +1,13 @@
+" maximize screen height
+set lines=99 columns=178
+
+set guioptions-=T  " Remove Toolbar
+set guioptions-=t  " Remove Tear-off menus
+
+"---------------------------------------                                
+" Set the nerdtree sidebar at startup
+"---------------------------------------    
+autocmd VimEnter * NERDTree           
+
+nnoremap <Space> <PageDown>
+nnoremap <S-Space> <PageUp>

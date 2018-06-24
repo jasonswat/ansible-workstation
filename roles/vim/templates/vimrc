@@ -1,0 +1,41 @@
+set nocompatible
+set encoding=utf-8
+
+"--- undo functionality
+set undofile
+set undodir=~/.vim/undo
+set runtimepath+=~/.vim
+
+"---------------------------------------
+" Pathogen Setup
+"---------------------------------------
+set nocp
+source ~/.vim/autoload/pathogen.vim
+execute pathogen#infect()
+
+"---------------------------------------
+"  tabs and indenting
+"---------------------------------------
+set tabstop=2     " tab = 2 spaces
+set shiftwidth=2  " autoindent indents 2 spaces
+set smarttab      " <TAB> in front of line inserts 'shiftwidth' blanks
+set softtabstop=2
+set shiftround    " round to 'shiftwidth' for "<<" and ">>" 
+set expandtab
+if exists('+colorcolumn')
+  set colorcolumn=72 " display column at 72 for best viewing
+endif
+"---------------------------------------
+" Displaying Text
+"---------------------------------------
+set scroll=3      " number of lines to show around cursor
+set linebreak     " for lines longer than window, wrap
+set number        " show line numbers
+
+"---------------------------------------
+" Command Line editing
+"---------------------------------------
+set history=200
+set wildmode=list:longest,full
+set wildignore+=*.swp
+set wildmenu
