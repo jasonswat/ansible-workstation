@@ -8,6 +8,7 @@
     - awscli
     - curl
     - elixir
+    - gcc
     - git
     - influxdb
     - jq
@@ -18,12 +19,20 @@
     - kubernetes-helm
     - python3
     - mas
-    - node
     - ngrep
+    - nmap
+    - node
+    - openssl
     - packer
     - pssh
     - the_silver_searcher
     - tiger-vnc
+    - tree
+    - sneaker
+    - vim
+    - macvim
+    - watch
+    - wget
 
 - name: install homebrew cask packages
   homebrew_cask: name={{ item }} state=present
@@ -37,6 +46,7 @@
     - handbrake
     - hipchat
     - iterm2
+    - java
     - keepassx
     - logitech-myharmony
     - postman
@@ -44,5 +54,6 @@
     - slack
     - sonos
     - virtualbox
+    - visual-studio-code
     - vlc
     - xquartz

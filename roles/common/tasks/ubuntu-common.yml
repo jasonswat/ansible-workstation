@@ -71,6 +71,8 @@
     - ubuntu-restricted-extras
     - vpnc
     - vlc
+    - vim
+    - vim-gtk
     - wireless-tools
     - wget
     - wpasupplicant
