@@ -1,0 +1,8 @@
+---
+- name: Set brew zsh as default shell 
+
+  # TODO:
+  # To check to see what the current shell is set to
+  # dscl . -read /Users/$USER UserShell
+  # To set current users default shell as brew installed zsh
+  # sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh

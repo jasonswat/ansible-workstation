@@ -1,15 +1,17 @@
 ---
-
-- name: Upgrade outdated apps from the Mac App Store.
-  shell: mas upgrade
-  register: result
-  changed_when: result.stdout.find('Everything is up-to-date') != 0
-
-- name: Install Mac App Store apps.
-  shell: mas list | grep {{ item }} || mas install {{ item }}
-  with_items:
-    - 497799835 # Xcode
-    - 408981434 # iMovie
-    - 552792489 # StatusClock
-  register: result
-  changed_when: result.stdout.find('Installed') != -1
+  #vars_prompt:
+  #- name: "mac_appstore_password"
+  #  prompt: "Enter Mac appstore password"
+  #  private: yes
+  #- name: Install Mac apps store apps
+  #- roles:
+  #- geerlingguy.mas
+- name: install mac store apps
+  include_role:
+    name: geerlingguy.mas
+  vars:
+    mas_installed_apps:
+      - { id: 497799835, name: "Xcode" }
+      - { id: 408981434, name: "iMovie" }
+      - { id: 552792489, name: "StatusClock" } 
+    mas_upgrade_all_apps: yes

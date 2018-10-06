@@ -10,6 +10,7 @@
     - elixir
     - gcc
     - git
+    - gitlab-runner
     - influxdb
     - jq
     - kafkacat
@@ -18,6 +19,7 @@
     - kubernetes-cli
     - kubernetes-helm
     - python3
+    - macvim
     - mas
     - ngrep
     - nmap
@@ -25,14 +27,15 @@
     - openssl
     - packer
     - pssh
+    - shellcheck
+    - sneaker
     - the_silver_searcher
     - tiger-vnc
     - tree
-    - sneaker
     - vim
-    - macvim
     - watch
     - wget
+    - zsh 
 
 - name: install homebrew cask packages
   homebrew_cask: name={{ item }} state=present
@@ -42,6 +45,7 @@
     - docker-toolbox
     - firefox
     - google-chrome
+    - google-cloud-sdk
     - gimp
     - handbrake
     - hipchat

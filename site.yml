@@ -6,8 +6,8 @@
 - hosts: local
 
   roles:
-    - common       # common packages
-    - terraform    # Install's terraform 
-    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-    - vim # setup vim pathogen and sync vim plugins
+    #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
+    - common     # common packages
+    - terraform  # Install's terraform 
+    - vim        # setup vim pathogen and sync vim plugins
    
