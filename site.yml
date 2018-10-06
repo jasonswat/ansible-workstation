@@ -5,6 +5,10 @@
 ---
 - hosts: local
 
+  vars:
+    - local_home: "{{ lookup('env', 'HOME') }}"
+    - user: "{{ lookup('env', 'USER') }}"
+
   roles:
     #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
     - common     # common packages
