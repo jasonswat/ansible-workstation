@@ -1,0 +1,49 @@
+conky.config = {
+  use_spacer = 'left',
+  pad_percents = 3,
+  background = false,
+  double_buffer = true,
+  font = 'DejaVu Sans Mono:size=10',
+  use_xft = true,
+  alignment = 'top_right',
+  gap_x = -1595,
+  gap_y = -300,
+  own_window_argb_visual = true,
+  own_window_argb_value = 0,
+  own_window_type = 'normal',
+  own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
+  own_window = true,
+  update_interval = 5.0,
+}
+
+conky.text = [[
+${color green}Hostname: ${color}${nodename}
+${color green}Kernel:   ${color}${sysname} ${kernel} on ${machine}
+${color green}Uptime:   ${color}${uptime}
+${exec /usr/lib/update-notifier/apt-check --human-readable}
+${hr}
+${color green}CPU:${color} ${freq_g} GHz
+{% for cpu in range(4) %}
+${color green}{{ cpu }}:${color} ${cpu cpu{{ cpu }}}% ${cpubar cpu{{ cpu }}}
+{% endfor %}
+${cpugraph}
+${color green}Name              PID   CPU%   MEM%
+{% for proc in range(1, 6) %}
+${color lightgrey} ${top name {{ proc }}} ${top pid {{ proc }}} ${top cpu {{ proc }}} ${top mem {{ proc }}}
+{% endfor %}
+${color green}Load average: ${color}${loadavg}
+${color green}Processes: ${color}${processes} 
+${color green}Running:${color} ${running_processes}
+${hr}
+${color green}RAM:  ${color}${mem}/${memmax}
+${memperc}% ${membar 4}
+${color green}Swap: ${color}${swap}/${swapmax}
+${swapperc}% ${swapbar 4}
+${memgraph}
+${hr}
+${color green}/ ${color}${fs_used /}/${fs_size /} ${fs_bar 6 /}
+${hr}
+${color green}IP:   ${color}${addr {{ ansible_default_ipv4.interface }}}
+${color green}Up:   ${color}${upspeed {{ ansible_default_ipv4.interface }}}
+${color green}Down: ${color}${downspeed {{ ansible_default_ipv4.interface }}}
+]]

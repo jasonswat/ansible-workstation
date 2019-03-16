@@ -11,7 +11,9 @@
 
   roles:
     #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-    - common     # common packages
-    - terraform  # Install's terraform 
-    - vim        # setup vim pathogen and sync vim plugins
+#    - common     # common packages
+#    - conky      # conky for ubuntu 
+    - docker     # add docker repo and install packages
+#    - terraform  # Install's terraform 
+#    - vim        # setup vim pathogen and sync vim plugins
    

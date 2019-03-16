@@ -77,7 +77,7 @@ Default installation
 Run the Playbook
 
 ```
-$ ansible-playbook -i hosts site.yml -c local
+$ ansible-playbook --ask-become-pass -i hosts site.yml -c local
 ```
 
 License
