@@ -14,6 +14,8 @@
 #    - common     # common packages
 #    - conky      # conky for ubuntu 
     - docker     # add docker repo and install packages
+    - dropbox    # Install dropbox from remote deb package
+    - keepass    # Install keepass ppa and package
 #    - terraform  # Install's terraform 
 #    - vim        # setup vim pathogen and sync vim plugins
    
