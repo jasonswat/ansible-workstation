@@ -18,14 +18,14 @@ This playbook will install the following utilities:
 Requirements
 -----------
 
-####Clone Repo
+#### Clone Repo
 
 
 ```
 git clone 
 ```
 
-####Install Ansible
+#### Install Ansible
 
 ```
 cd ansible-ubuntu
@@ -33,7 +33,7 @@ cd ansible-ubuntu
 ./ansible_install.sh
 ```
 
-####Install required galaxy playbooks:
+#### Install required galaxy playbooks:
 
 ```
 ansible-galaxy install -r requirements.yml
