@@ -11,7 +11,7 @@
 
   roles:
     #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-#    - common     # common packages
+    - common     # common packages
 #    - conky      # conky for ubuntu 
 #    - docker     # add docker repo and install packages
     - dropbox    # Install dropbox from remote deb package
