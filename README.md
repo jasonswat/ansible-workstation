@@ -1,11 +1,10 @@
 Ansible Workstation
 =======================
 
-This is an ansible playbook to configure an ubuntu 14.04 workstation.
+This is an ansible playbook to configure an ubuntu 18.10 workstation.
 This playbook will install the following utilities:
 
   - awscli                                                            
-  - chrome                                                            
   - conky                                                             
   - docker                                                            
   - kubectl                                                           
@@ -13,13 +12,8 @@ This playbook will install the following utilities:
   - nodejs                                                            
   - slack                                                             
   - terraform                                                         
-  - terragrunt                                                        
-  - virtualbox                                                        
   - vim                                                               
 
-It also installs several ubuntu packages including xubuntu-desktop
-
-It removes some packages like libreoffice and games
 
 Requirements
 -----------
