@@ -1,0 +1,8 @@
+- name: Install deb package 
+  apt:
+    deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.01.31_amd64.deb 
+  become: yes
+
+- name: Install python-gpg 
+  apt: pkg=python-gpg state=present
+  become: yes
