@@ -14,7 +14,6 @@
     - influxdb
     - jq
     - kafkacat
-    - kapacitor
     - ktail # kafka-tail
     - kubernetes-cli
     - kubernetes-helm
@@ -41,8 +40,6 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - atom
-    - docker
-    - docker-toolbox
     - firefox
     - google-chrome
     - google-cloud-sdk
