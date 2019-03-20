@@ -1,10 +1,11 @@
 ---
 
-- name: install terraform unzip download
+- name: Install terraform zip download
   unarchive:
     src: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
     dest: /usr/local/bin
     remote_src: True
+  become: yes
   when: ansible_distribution == "Ubuntu"
 
 - name: install terraform from brew

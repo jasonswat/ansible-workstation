@@ -11,11 +11,11 @@
 
   roles:
     #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-    - common     # common packages
-#    - conky      # conky for ubuntu 
-#    - docker     # add docker repo and install packages
-    - dropbox    # Install dropbox from remote deb package
-#    - keepass    # Install keepass ppa and package
-#    - terraform  # Install's terraform 
+    - common     # common package and utils, silver searcher, curl, nmap, make, gcc, etc.
+    - conky      # Conky for ubuntu 
+    - docker     # Docker repo and install packages or docker from brew cask for mac
+    - dropbox    # Install dropbox from deb package or dropbox from brew cask for mac
+    - keepass    # Install keepass ppa and package or keepassx for mac
+    - terraform  # Install terraform
 #    - vim        # setup vim pathogen and sync vim plugins
    

@@ -5,15 +5,15 @@
 - name: Create en_US.UTF-8 locale
   locale_gen: name=en_US.UTF-8 state=present
 
-- name: Linux | Update cache
+- name: Update apt cache
   apt: update_cache=yes cache_valid_time=3600
   become: yes
 
-- name: Linux | Upgrade
+- name: Upgrade
   apt: upgrade=dist
   become: yes
 
-- name: Package | Install lists packages
+- name: Install packages
   apt: pkg={{ item }} state=present
   become: yes
   with_items:
@@ -29,12 +29,14 @@
     - bzip2
     - curl
     - dkms
+    - elixir
     - firefox
     - git
     - git-core
     - git-flow
     - git-email
     - git-extras
+    - golang-go
     - gnupg-agent
     - gstreamer1.0-alsa
     - gstreamer1.0-plugins-base-apps
@@ -67,15 +69,16 @@
     - watch
     - xorg
 
-- name: Package | Remove Packages 
+- name: Remove packages 
   apt: pkg={{ item }} state=absent
   become: yes
   with_items:
+    - aisleriot
     - ack
     - gbrainy
     - gnome-mines
     - gnome-sudoku
     - gnome-mahjongg
     - gnome-games-common
+    - libgnome-games-support-common
     - unity-webapps-common 
-    - aisleriot

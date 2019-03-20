@@ -14,13 +14,13 @@
 - name: vim | sync pathogen repo
   get_url:
     url: https://tpo.pe/pathogen.vim 
-    dest: "{{ local_home }}/mvim/autoload/pathogen.vim"
+    dest: "{{ local_home }}/.vim/autoload/pathogen.vim"
     owner: '{{ user }}'
 
 - name: vim | sync vim repos
   git:
-    repo: "{{ item }}"
-    dest: "{{ local_home }}/mvim/bundle/{{ item | basename | regex_replace('.git','') }}"
+    repo: '{{ item }}'
+    dest: "{{ local_home }}/.vim/bundle/{{ item | basename | regex_replace('.git','') }}"
   become_user: '{{ user }}'
   with_items:
     - https://github.com/w0rp/ale.git
