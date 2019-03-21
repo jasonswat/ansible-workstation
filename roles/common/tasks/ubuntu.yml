@@ -13,7 +13,7 @@
   apt: upgrade=dist
   become: yes
 
-- name: Install packages
+- name: Install ubuntu packages
   apt: pkg={{ item }} state=present
   become: yes
   with_items:
@@ -26,12 +26,7 @@
     - bash-completion
     - bluez
     - build-essential
-    - bzip2
-    - curl
     - dkms
-    - elixir
-    - firefox
-    - git
     - git-core
     - git-flow
     - git-email
@@ -42,32 +37,28 @@
     - gstreamer1.0-plugins-base-apps
     - gstreamer1.0-pulseaudio
     - gzip
-    - jq
     - htop
     - linux-headers-generic
-    - nmap
     - openssh-server
-    - openssl
-    - pssh
     - pwgen
     - pulseaudio
-    - shellcheck
     - software-properties-common
     - silversearcher-ag
     - tmux
     - terminator
     - tcpdump
     - tar
-    - tree
     - unzip
     - ubuntu-restricted-extras
-    - vlc
     - vim
     - vim-gtk
     - wireless-tools
-    - wget
-    - watch
     - xorg
+
+- name: Install common packages
+  apt: pkg={{ item }} state=present
+  become: yes
+  with_items: '{{ common_packages }}'
 
 - name: Remove packages 
   apt: pkg={{ item }} state=absent

@@ -1,0 +1,19 @@
+---
+
+common_packages:
+- bzip2
+- curl
+- elixir
+- firefox
+- git
+- gcc
+- jq
+- nmap
+- openssl
+- pssh
+- shellcheck
+- tree
+- vim
+- vlc
+- watch
+- wget

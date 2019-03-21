@@ -11,7 +11,7 @@
 
   roles:
     #    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-    - common     # common package and utils, silver searcher, curl, nmap, make, gcc, etc.
+    - common     # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - conky      # Conky for ubuntu 
     - docker     # Docker repo and install packages or docker from brew cask for mac
     - dropbox    # Install dropbox from deb package or dropbox from brew cask for mac
