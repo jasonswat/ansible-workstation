@@ -16,60 +16,14 @@
 - name: Install ubuntu packages
   apt: pkg={{ item }} state=present
   become: yes
-  with_items:
-    - alsa-base
-    - alsa-utils
-    - apt-transport-https
-    - aptitude
-    - ca-certificates
-    - chrony
-    - bash-completion
-    - bluez
-    - build-essential
-    - dkms
-    - git-core
-    - git-flow
-    - git-email
-    - git-extras
-    - golang-go
-    - gnupg-agent
-    - gstreamer1.0-alsa
-    - gstreamer1.0-plugins-base-apps
-    - gstreamer1.0-pulseaudio
-    - gzip
-    - htop
-    - linux-headers-generic
-    - openssh-server
-    - pwgen
-    - pulseaudio
-    - software-properties-common
-    - silversearcher-ag
-    - tmux
-    - terminator
-    - tcpdump
-    - tar
-    - unzip
-    - ubuntu-restricted-extras
-    - vim
-    - vim-gtk
-    - wireless-tools
-    - xorg
-
-- name: Install common packages
-  apt: pkg={{ item }} state=present
-  become: yes
   with_items: '{{ common_packages }}'
 
-- name: Remove packages 
+- name: Install ubuntu packages
+  apt: pkg={{ item }} state=present
+  become: yes
+  with_items: '{{ install_ubuntu_packages }}'
+
+- name: Remove Ubuntu packages 
   apt: pkg={{ item }} state=absent
   become: yes
-  with_items:
-    - aisleriot
-    - ack
-    - gbrainy
-    - gnome-mines
-    - gnome-sudoku
-    - gnome-mahjongg
-    - gnome-games-common
-    - libgnome-games-support-common
-    - unity-webapps-common 
+  with_items: '{{ remove_ubuntu_packages }}'
