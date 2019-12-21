@@ -1,0 +1,11 @@
+---
+- name: Install Slack from snap
+  snap:
+    name: slack 
+    classic: yes
+  become: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Slack from homebrew cask
+  homebrew_cask: name=slack state=present
+  when: ansible_distribution == "Darwin"
