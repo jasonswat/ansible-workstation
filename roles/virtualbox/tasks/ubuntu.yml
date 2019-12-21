@@ -1,0 +1,19 @@
+- name: Add signing key 
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc 
+    state: present
+  become: yes
+
+- name: Add virtualbox repo 
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
+    state: present
+  become: yes
+
+- name: Update cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Install virtualbox package 
+  apt: pkg=virtualbox-6.1 state=present
+  become: yes
