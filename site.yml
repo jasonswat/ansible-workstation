@@ -17,6 +17,7 @@
     - dropbox    # Install dropbox from deb package or dropbox from brew cask for mac
     - keepass    # Install keepass ppa and package or keepassx for mac
     - slack      # Install slack 
+    - shell      # Shell related tasks 
 #    - terraform  # Install terraform
 #    - vim        # setup vim pathogen and sync vim plugins
    

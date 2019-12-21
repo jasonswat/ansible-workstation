@@ -1,0 +1,9 @@
+---
+- name: Sync bash-it repo 
+  git:
+    repo: 'https://github.com/Bash-it/bash-it.git'
+    dest: "{{ local_home }}/.bash_it"
+    # dest: "{{ local_home }}/{{ item | basename | regex_replace('.git','') }}"
+    depth: 1
+  become_user: '{{ user }}'
+
