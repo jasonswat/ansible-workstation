@@ -7,7 +7,6 @@ common_packages:
 - firefox
 - git
 - gcc
-- jsonnet
 - jq
 - nmap
 - ngrep

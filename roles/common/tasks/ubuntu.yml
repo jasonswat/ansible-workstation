@@ -9,21 +9,14 @@
   apt: update_cache=yes cache_valid_time=3600
   become: yes
 
-- name: Upgrade
-  apt: upgrade=dist
+- name: Install ubuntu packages
+  apt: pkg={{ common_packages }} state=present
   become: yes
 
 - name: Install ubuntu packages
-  apt: pkg={{ item }} state=present
+  apt: pkg={{ install_ubuntu_packages }} state=present
   become: yes
-  with_items: '{{ common_packages }}'
-
-- name: Install ubuntu packages
-  apt: pkg={{ item }} state=present
-  become: yes
-  with_items: '{{ install_ubuntu_packages }}'
 
 - name: Remove Ubuntu packages 
-  apt: pkg={{ item }} state=absent
+  apt: pkg={{ remove_ubuntu_packages }} state=absent
   become: yes
-  with_items: '{{ remove_ubuntu_packages }}'

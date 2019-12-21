@@ -28,9 +28,9 @@ git clone
 #### Install Ansible
 
 ```
-cd ansible-ubuntu
+sudo apt-get install -y git python3-pip
+sudo -H pip3 install ansible
 
-./ansible_install.sh
 ```
 
 #### Install required galaxy playbooks:
