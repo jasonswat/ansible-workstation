@@ -5,7 +5,6 @@ common_packages:
 - curl
 - elixir
 - firefox
-- fzf 
 - git
 - gcc
 - gzip
@@ -44,9 +43,13 @@ install_ubuntu_packages:
 - gstreamer1.0-plugins-base-apps
 - gstreamer1.0-pulseaudio
 - linux-headers-generic
+- mtr
+- mc
+- nnn
 - openssh-server
 - pwgen
 - pulseaudio
+- pydf
 - software-properties-common
 - silversearcher-ag
 - tmux
@@ -65,6 +68,7 @@ brew_packages:
 - automake
 - awscli
 - elixir
+- fzf
 - gitlab-runner
 - influxdb
 - kafkacat

@@ -1,11 +1,9 @@
 ---
 - name: install common packages from brew
-  homebrew: name={{ item }} state=present
-  with_items: '{{ common_packages }}'
+  homebrew: name={{ common_packages }} state=present
 
 - name: install brew packages
-  homebrew: name={{ item }} state=present
-  with_items: '{{ brew_packages }}'
+  homebrew: name={{ brew_packages }} state=present
 
 - name: install homebrew cask packages
   homebrew_cask: name={{ item }} state=present
