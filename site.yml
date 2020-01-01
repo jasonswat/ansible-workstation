@@ -16,6 +16,7 @@
     - docker     # Docker repo and install packages or from brew cask for mac
     - dropbox    # Install dropbox from deb package or from brew cask for mac
     - keepass    # Install keepass
+    - sdkman     # Install sdkman
     - slack      # Install slack
     - shell      # Shell related tasks
     - tfenv      # Install tfenv to manage terraform 

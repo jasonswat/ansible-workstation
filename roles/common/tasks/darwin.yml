@@ -1,32 +1,11 @@
 ---
-- name: install common brew packages
+- name: install common packages from brew
   homebrew: name={{ item }} state=present
   with_items: '{{ common_packages }}'
 
 - name: install brew packages
   homebrew: name={{ item }} state=present
-  with_items:
-    - ansible
-    - autoconf
-    - automake
-    - awscli
-    - elixir
-    - gitlab-runner
-    - influxdb
-    - kafkacat
-    - ktail # kafka-tail
-    - kubernetes-cli
-    - kubernetes-helm
-    - python3
-    - macvim
-    - mas
-    - node
-    - packer
-    - sneaker
-    - the_silver_searcher
-    - tiger-vnc
-    - vim
-    - zsh 
+  with_items: '{{ brew_packages }}'
 
 - name: install homebrew cask packages
   homebrew_cask: name={{ item }} state=present

@@ -1,12 +1,15 @@
 ---
-
+# packages that can be installed with apt/ubuntu or brew/darwin
 common_packages:
 - bzip2
 - curl
 - elixir
 - firefox
+- fzf 
 - git
 - gcc
+- gzip
+- htop
 - jq
 - nmap
 - ngrep
@@ -19,6 +22,7 @@ common_packages:
 - watch
 - wget
 
+# packaged only found on ubuntu
 install_ubuntu_packages:
 - alsa-base
 - alsa-utils
@@ -39,8 +43,6 @@ install_ubuntu_packages:
 - gstreamer1.0-alsa
 - gstreamer1.0-plugins-base-apps
 - gstreamer1.0-pulseaudio
-- gzip
-- htop
 - linux-headers-generic
 - openssh-server
 - pwgen
@@ -53,10 +55,31 @@ install_ubuntu_packages:
 - tar
 - unzip
 - ubuntu-restricted-extras
-- vim
 - vim-gtk
 - wireless-tools
 - xorg
+
+brew_packages:
+- ansible
+- autoconf
+- automake
+- awscli
+- elixir
+- gitlab-runner
+- influxdb
+- kafkacat
+- ktail # kafka-tail
+- kubernetes-cli
+- kubernetes-helm
+- python3
+- macvim
+- mas
+- node
+- packer
+- sneaker
+- the_silver_searcher
+- tiger-vnc
+- zsh
 
 remove_ubuntu_packages:
 - aisleriot

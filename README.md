@@ -9,7 +9,6 @@ This playbook will install the following utilities:
   - docker                                                            
   - kubectl                                                           
   - pinta                                                             
-  - nodejs                                                            
   - slack                                                             
   - terraform                                                         
   - vim                                                               
@@ -33,7 +32,7 @@ sudo -H pip3 install ansible
 
 ```
 
-#### Install required galaxy playbooks:
+#### Install required galaxy playbooks (mac only):
 
 ```
 ansible-galaxy install -r requirements.yml
@@ -54,15 +53,11 @@ for example:
     - common       # common packages
     - chrome     # chrome canary (develeoper version)
     - conky
-    - desktop
 #    - docker
     - kubectl 
 #    - pinta 
-    - nodejs
     - shell
-    - nover.ohmyzsh
 #    - slack
-#    - terraform 
 ```
 
 Default installation
@@ -73,6 +68,11 @@ Run the Playbook
 ```
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local
 ```
+
+### These were install manaully, the install instructions were not idempotent 
+
+sdkman
+
 
 License
 -------
