@@ -1,5 +1,0 @@
-- name: install sdkman
-  shell: 'curl -s "https://get.sdkman.io"| bash'
-  become_user: '{{ user }}'
-  args: 
-    creates: '{{ local_home }}/.sdkman/bin'

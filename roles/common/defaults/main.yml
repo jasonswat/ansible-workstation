@@ -88,10 +88,20 @@ brew_packages:
 remove_ubuntu_packages:
 - aisleriot
 - ack
+- five-or-more
+- four-in-a-row
 - gbrainy
 - gnome-mines
 - gnome-sudoku
 - gnome-mahjongg
 - gnome-games-common
+- hitori
+- lango
+- lightsoff
 - libgnome-games-support-common
+- quadrapassel
+- swell-foop
+- tali
+- taquin
+- tetravex
 - unity-webapps-common 
