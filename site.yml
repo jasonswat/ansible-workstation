@@ -12,13 +12,15 @@
   roles:
     - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
     - common     # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
-#    - conky      # Conky for ubuntu
+    - conky      # Conky for ubuntu
+    - awscli     # pip3 install awscli (mac and ubuntu)
     - docker     # Docker repo and install packages or from brew cask for mac
     - dropbox    # Install dropbox from deb package or from brew cask for mac
     - keepass    # Install keepass
+#    - pinta      # Ubuntu only - install simple paint application
     - sdkman     # Install sdkman
     - slack      # Install slack
-    - shell      # Shell related tasks
+    - shell      # Shell related tasks (installs bash-it)
     - tfenv      # Install tfenv to manage terraform 
 #    - vim        # setup vim pathogen and sync vim plugins
     - virtualbox # Install virtualbox
