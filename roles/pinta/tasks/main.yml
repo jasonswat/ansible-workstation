@@ -1,9 +1,4 @@
 ---
-- name: Add pinta ppa repo
-  become: yes
-  apt_repository:
-    repo: ppa:pinta-maintainers/pinta-stable
-
 - name: install pinta from apt 
   become: yes
-  apt: pkg=pinta state=present update_cache=yes
+  apt: pkg=pinta state=present
