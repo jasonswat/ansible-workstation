@@ -50,6 +50,7 @@ install_ubuntu_packages:
 - pwgen
 - pulseaudio
 - pydf
+- redshift-gtk
 - software-properties-common
 - silversearcher-ag
 - tmux
