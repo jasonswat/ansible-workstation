@@ -29,6 +29,8 @@ install_ubuntu_packages:
 - aptitude
 - ca-certificates
 - chrony
+- clamav
+- clamav-daemon
 - bash-completion
 - bluez
 - build-essential
