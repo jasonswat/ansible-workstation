@@ -1,0 +1,13 @@
+---
+- name: download packer
+  get_url:
+    url: "https://releases.hashicorp.com/packer/{{ version }}/packer_{{ version }}_linux_amd64.zip"
+    dest: "/usr/local/src/packer_{{ version }}_linux_amd64.zip"
+    sha256sum: "{{ checksum }}"
+  become: yes
+
+- name: extract the packer zip file
+  unarchive:
+    src: "/usr/local/src/packer_{{ version }}_linux_amd64.zip"
+    dest: "/usr/local/bin/"
+  become: yes
