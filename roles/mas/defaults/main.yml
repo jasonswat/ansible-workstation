@@ -1,5 +1,0 @@
----
-vars_prompt:
-    - name: "mas_password"
-      prompt: "Set your Mac appstore password"
-      private: yes

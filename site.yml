@@ -1,7 +1,6 @@
 ##
 # Ansible playbook to configure desktop 
-#
-
+##
 ---
 - hosts: local
 
@@ -11,17 +10,22 @@
 
   roles:
     - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
-    - common     # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
+    - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - conky       # Conky for ubuntu
     - awscli      # pip3 install awscli (mac and ubuntu)
     - docker      # Docker repo and install packages or from brew cask for mac
     - dropbox     # Install dropbox from deb package or from brew cask for mac
+    - golang      # Install golang    
     - keepass     # Install keepass
+    - packer      # Install hashicorp packer
+      #- role: packer
+      # version: 1.15.1
+      #checksum: 3305ede8886bc3fd83ec0640fb87418cc2a702b2cb1567b48c8cb9315e80047d 
     - pinta       # Ubuntu only - install simple paint application
     - sdkman      # Install sdkman
     - slack       # Install slack
     - shell       # Shell related tasks (installs bash-it)
     - tfenv       # Install tfenv to manage terraform version 
-      #    - vim_plugins # setup vim pathogen and sync vim plugins
+    - vim_plugins # setup vim pathogen and sync vim plugins
     - virtualbox  # Install virtualbox
     - vscode      # Install visualstudiocode

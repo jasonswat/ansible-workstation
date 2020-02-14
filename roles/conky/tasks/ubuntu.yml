@@ -1,23 +1,23 @@
-- name: Conky | Install
+- name: Install
   apt: name=conky state=present
   become: yes
   tags: conky 
   when: ansible_distribution == "Ubuntu"
 
-- name: Conky | create config directory
+- name: create config directory
   file:
     path: /home/{{ user }}/.config/autostart
     state: directory
   when: ansible_distribution == "Ubuntu"
 
-- name: Conky | configure autostart 
+- name: configure autostart 
   template: 
     src: conky.desktop.j2 
     dest: /home/{{ user }}/.config/autostart/conky.desktop
   tags: conky 
   when: ansible_distribution == "Ubuntu"
 
-- name: Conky | .conkyrc
+- name: .conkyrc
   template: 
     src: conkyrc.j2 
     dest: /home/{{ user }}/.conkyrc
