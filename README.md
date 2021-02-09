@@ -46,6 +46,13 @@ Run the Playbook
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local
 ```
 
+Additional Configuration and Drivers
+------------------------------------
+
+D3100 Docking station
+
+https://www.displaylink.com/downloads/ubuntu
+
 License
 -------
 
