@@ -1,0 +1,2 @@
+- name: install megasync from homebrew cask 
+  homebrew_cask: name=megasync state=present

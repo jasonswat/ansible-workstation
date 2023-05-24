@@ -14,7 +14,7 @@
     #- conky       # Conky for ubuntu
     - awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
-    - dropbox     # Install dropbox from deb package or from brew cask for mac
+    - megasync     # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang    
     - keepass     # Install keepass
     #- pinta       # Ubuntu only - install simple paint application
@@ -22,7 +22,7 @@
     #- slack       # Install slack
     - shell       # Shell related tasks (installs bash-it)
     - tfenv       # Install tfenv to manage terraform version 
-    - vagrant     # Install hashicorp vagrant
+    #- vagrant     # Install hashicorp vagrant
     - vim_plugins # setup vim pathogen and sync vim plugins
-    - virtualbox  # Install virtualbox
+    #- virtualbox  # Install virtualbox
     - vscode      # Install visualstudiocode

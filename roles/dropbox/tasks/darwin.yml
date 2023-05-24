@@ -1,2 +1,0 @@
-- name: install dropbox from homebrew cask 
-  homebrew_cask: name=dropbox state=present
