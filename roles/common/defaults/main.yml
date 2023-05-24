@@ -4,7 +4,6 @@ common_packages:
 - bzip2
 - curl
 - elixir
-- firefox
 - git
 - gcc
 - gzip
@@ -16,8 +15,6 @@ common_packages:
 - pssh
 - shellcheck
 - tree
-- vim
-- vlc
 - watch
 - wget
 
@@ -63,6 +60,7 @@ install_ubuntu_packages:
 - unzip
 - ubuntu-restricted-extras
 - vim-gtk
+- vlc
 - wireless-tools
 - xorg
 - yamllint
@@ -74,21 +72,14 @@ brew_packages:
 - awscli
 - elixir
 - fzf
-- gitlab-runner
-- influxdb
-- kafkacat
-- ktail # kafka-tail
+- kcat
 - kubernetes-cli
-- kubernetes-helm
 - python3
 - macvim
 - mas
 - node
 - packer
-- sneaker
 - the_silver_searcher
-- tiger-vnc
-- zsh
 
 remove_ubuntu_packages:
 - aisleriot

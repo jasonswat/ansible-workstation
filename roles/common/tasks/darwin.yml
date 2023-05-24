@@ -8,18 +8,10 @@
 - name: install homebrew cask packages
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - atom
-    - firefox
     - google-chrome
-    - google-cloud-sdk
     - gimp
     - handbrake
-    - iterm2
-    - java
-    - logitech-myharmony
     - postman
     - paintbrush
-    - sonos
-    - virtualbox
     - vlc
     - xquartz
