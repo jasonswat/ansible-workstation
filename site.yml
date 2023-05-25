@@ -9,7 +9,7 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
-    - { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
+    #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
     - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - terminal    # install a terminal (iterm2 for mac and qterminal for ubuntu)
     #- conky       # Conky for ubuntu

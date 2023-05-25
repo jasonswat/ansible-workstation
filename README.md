@@ -26,8 +26,8 @@ git clone
 #### Install Ansible
 
 ```
-sudo apt-get install -y git python3-pip
-sudo -H pip3 install ansible
+sudo apt-get install -y git python3-pip (ubuntu only)
+pip3 install ansible
 
 ```
 
@@ -37,10 +37,23 @@ sudo -H pip3 install ansible
 ansible-galaxy install -r requirements.yml
 ```
 
+Install brew
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
 Default installation
 --------------------
 
+Test the playbook by running in "check" mode
+
+```
+$ ansible-playbook --ask-become-pass --check -i hosts site.yml -c local
+```
+
 Run the Playbook
+
 
 ```
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local

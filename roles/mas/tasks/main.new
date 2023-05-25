@@ -9,7 +9,6 @@
   shell: mas list | grep {{ item }} || mas upgrade {{ item }}
   with_items:
     - 497799835 # Xcode
-    - 408981434 # iMovie
     - 552792489 # StatusClock
   register: result
   changed_when: result.stdout.find('Installed') != -1
