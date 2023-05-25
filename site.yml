@@ -9,10 +9,10 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
-    #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas, brew and cask apps
+    #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas
     - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - terminal    # install a terminal (iterm2 for mac and qterminal for ubuntu)
-    #- conky       # Conky for ubuntu
+    #- { role: conky, when: ansible_os_familiy == 'ubuntu' } # Conky performace wigit for ubuntu desktop
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
     - megasync     # Install megasync from deb package or from brew cask for mac

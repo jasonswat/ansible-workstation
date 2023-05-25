@@ -54,10 +54,16 @@ $ ansible-playbook --ask-become-pass --check -i hosts site.yml -c local
 
 Run the Playbook
 
-
 ```
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local
 ```
+
+Post Setup
+----------
+
+ * Setup Bash-IT `~/.bash_it/install.sh`
+ * Login to Megasync
+
 
 License
 -------
