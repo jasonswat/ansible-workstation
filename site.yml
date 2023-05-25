@@ -12,18 +12,19 @@
     #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas
     - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - terminal    # install a terminal (iterm2 for mac and qterminal for ubuntu)
-    #- { role: conky, when: ansible_os_familiy == 'ubuntu' } # Conky performace wigit for ubuntu desktop
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
     - megasync     # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang    
     - keepass     # Install keepass
-    #- pinta       # Ubuntu only - install simple paint application
     - sdkman      # Install sdkman
     #- slack       # Install slack
-    - shell       # Shell related tasks (installs bash-it)
+    - shell       # Shell related tasks (clones bash-it)
     - tfenv       # Install tfenv to manage terraform version
     #- vagrant     # Install hashicorp vagrant
     - vim_plugins # setup vim pathogen and sync vim plugins
     #- virtualbox  # Install virtualbox
     #- vscode      # Install visualstudiocode
+    # Ubuntu specific roles:
+    - { role: conky, when: ansible_os_family == 'Ubuntu' } # Conky performace wigit for ubuntu desktop
+    - { role: pinta, when: ansible_os_family == 'Ubuntu' } # Ubuntu only - install simple paint application
