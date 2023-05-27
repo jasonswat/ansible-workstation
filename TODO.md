@@ -1,4 +1,4 @@
-add code to install pip3 packages:
-
-pip3 install pyqt5==5.14.0
-pip3 install labelme==3.6.10
+* Mac keyboard settings to make backspace faster
+* Mac install displaylink drivers for docking station
+* install miniconda and create python environments for both linux and mac
+* iterm2 turn off bell, copy on select

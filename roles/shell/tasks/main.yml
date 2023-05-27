@@ -3,7 +3,9 @@
   git:
     repo: 'https://github.com/Bash-it/bash-it.git'
     dest: "{{ local_home }}/.bash_it"
-    # dest: "{{ local_home }}/{{ item | basename | regex_replace('.git','') }}"
     depth: 1
   become_user: '{{ user }}'
 
+- name: Install GNU bash since MacOs uses old version and they want you to use zsh 
+  homebrew: name=bash state=present
+  when: ansible_distribution == "Darwin"

@@ -1,0 +1,3 @@
+- name: Install qterminal 
+  apt: pkg=qterminal state=present
+  become: yes

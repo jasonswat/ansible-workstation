@@ -1,0 +1,19 @@
+- name: Add hashicorp signing key 
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg 
+    state: present
+  become: yes
+
+- name: Add hashicorp repo 
+  apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+    state: present
+  become: yes
+
+- name: Update cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Install vagrant package 
+  apt: pkg=vagrant state=present
+  become: yes
