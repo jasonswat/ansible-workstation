@@ -1,5 +1,5 @@
 ##
-# Ansible playbook to configure mac or ubuntu workstation 
+# Ansible playbook to configure mac or ubuntu workstation
 ##
 ---
 - hosts: local
@@ -15,11 +15,11 @@
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
     - megasync     # Install megasync from deb package or from brew cask for mac
-    #- golang      # Install golang    
+    #- golang      # Install golang
     - keepass     # Install keepass
     - sdkman      # Install sdkman
     #- slack       # Install slack
-    - shell       # Shell related tasks (clones bash-it)
+    - { role: shell, version: v3.0.3 } # Shell related tasks (clones bash-it)
     - tfenv       # Install tfenv to manage terraform version
     #- vagrant     # Install hashicorp vagrant
     - vim_plugins # setup vim pathogen and sync vim plugins

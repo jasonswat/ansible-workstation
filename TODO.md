@@ -1,4 +1,4 @@
-* Mac keyboard settings to make backspace faster
+* Mac keyboard settings to make backspace faster: https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x/83923#83923
 * Mac install displaylink drivers for docking station
 * install miniconda and create python environments for both linux and mac
-* iterm2 turn off bell, copy on select
+* iterm2 turn off bell, also create a profile to save settings

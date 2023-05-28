@@ -5,7 +5,7 @@ vim_plugin_repos:
 - https://github.com/itchyny/vim-gitbranch.git
 - https://github.com/sjl/vitality.vim.git
 - https://github.com/mhinz/vim-startify.git
-- https://github.com/scrooloose/nerdtree.git
+  #- https://github.com/scrooloose/nerdtree.git
 - https://github.com/rkulla/pydiction.git
 - https://github.com/tpope/vim-bundler.git
 - https://github.com/tpope/vim-fugitive.git

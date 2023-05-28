@@ -1,6 +1,6 @@
-- name: Add keepass ppa repo 
+- name: Add keepass ppa repo
   apt_repository:
-    repo: ppa:jtaylor/keepass 
+    repo: ppa:jtaylor/keepass
     codename: '{{ ansible_distribution_release }}'
   become: yes
 
