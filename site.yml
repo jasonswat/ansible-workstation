@@ -14,9 +14,9 @@
     - terminal    # install a terminal (iterm2 for mac and qterminal for ubuntu)
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
-    - megasync     # Install megasync from deb package or from brew cask for mac
+    #- megasync     # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang
-    - keepass     # Install keepass
+    #- keepass     # Install keepass
     - sdkman      # Install sdkman
     #- slack       # Install slack
     - { role: shell, version: v3.0.3 } # Shell related tasks (clones bash-it)

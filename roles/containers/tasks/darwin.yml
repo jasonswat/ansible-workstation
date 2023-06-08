@@ -2,7 +2,4 @@
 - name: install lime and docker homebrew packages
   homebrew: name={{ item }} state=present
   with_items:
-    - lima 
-    - docker
-    - docker-credential-helper
-    - docker-compose
+    - podman

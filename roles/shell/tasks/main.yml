@@ -7,6 +7,18 @@
     version: '{{ version }}'
   become_user: '{{ user }}'
 
-- name: Install GNU bash since MacOs uses old version and they want you to use zsh
+- name: Install GNU bash since MacOs uses old version
   homebrew: name=bash state=present
   when: ansible_distribution == "Darwin"
+
+
+- name: Create shell directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: 0700
+    owner: '{{ user }}'
+  with_items:
+    - "{{ local_home }}/.shell"
+    - "{{ local_home }}/.ssh"
+    - "{{ local_home }}/.ssh/config.d"
