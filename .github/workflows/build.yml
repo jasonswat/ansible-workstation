@@ -22,7 +22,14 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - name: pip install ansible on ubuntu
+      - name: pip install ansible on ${{ matrix.os }}
         if: runner.os == 'Linux'
         run: |
-         pip3 install ansible
+          pip3 install ansible
+
+      - name: Run ansible on ${{ matrix.os }}
+        if: runner.os == 'Linux'
+        run: |
+          ansible-playbook -i hosts site.yml -c local
+
+
