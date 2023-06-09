@@ -37,7 +37,6 @@ install_ubuntu_packages:
 - dkms
 - git-core
 - git-flow
-- git-email
 - git-extras
 - gnupg-agent
 - gstreamer1.0-alsa
