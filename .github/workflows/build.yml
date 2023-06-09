@@ -1,0 +1,28 @@
+name: Install on Ubuntu
+
+on:
+  push:
+  pull_request:
+
+jobs:
+    test_linux_x64:
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        python: [3.8]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup python ${{ matrix.python }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: pip install ansible on ubuntu
+        if: runner.os == 'Linux'
+        run: |
+         pip3 install ansible
