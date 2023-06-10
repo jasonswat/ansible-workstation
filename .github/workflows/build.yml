@@ -1,4 +1,4 @@
-name: Install on Ubuntu
+name: test ansible-playbook on Macos and Ubuntu
 
 on:
   push:
