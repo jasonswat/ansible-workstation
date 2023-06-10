@@ -8,7 +8,7 @@ jobs:
   test_linux_x64:
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        os: [macos-12, ubuntu-20.04]
         python: [3.8]
 
     runs-on: ${{ matrix.os }}
@@ -23,12 +23,10 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: pip install ansible on ${{ matrix.os }}
-        if: runner.os == 'Linux'
         run: |
           pip3 install ansible
 
       - name: Run ansible on ${{ matrix.os }}
-        if: runner.os == 'Linux'
         run: |
           ansible-playbook -i hosts site.yml -c local
 
