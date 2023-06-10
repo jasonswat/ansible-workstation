@@ -18,6 +18,6 @@
   args:
     creates: "{{ local_home }}/miniconda/envs/py{{ item }}/bin/python"
   with_items:
-    - 3.8
-    - 3.9
-    - 3.10
+    - '3.8'
+    - '3.9'
+    - '3.10'
