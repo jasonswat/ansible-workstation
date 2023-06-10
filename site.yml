@@ -14,7 +14,6 @@
     - { role: container, tags: 'container' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
     - { role: terminal, tags: 'terminal' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
     #- awscli      # pip3 install awscli (mac and ubuntu)
-    #- docker      # Docker repo and install packages or from brew cask for mac
     #- megasync     # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang
     #- keepass     # Install keepass
