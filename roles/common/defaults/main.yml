@@ -1,4 +1,8 @@
 ---
+homebrew_path:
+  x86_64: "/usr/local/bin/brew"
+  arm64: "/opt/homebrew/bin/brew"
+
 # packages that can be installed with apt/ubuntu or brew/darwin
 common_packages:
 - bzip2
