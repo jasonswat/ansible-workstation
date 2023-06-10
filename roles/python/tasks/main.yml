@@ -1,0 +1,11 @@
+---
+- name: install miniconda
+  get_url:
+    #url: "{{ ansible_os_family[ansible_architecture]['script'] }}"
+    url: "{{ downloads[ansible_os_family][ansible_architecture]['script'] }}"
+    checksum: "{{ downloads[ansible_os_family][ansible_architecture]['checksum'] }}"
+    dest: "{{ local_home }}/conda_install.sh"
+    owner: '{{ user }}'
+  #become_user: '{{ user }}'
+  #args:
+  #  creates: "{{ local_home }}/miniconda3/bin/conda"

@@ -9,20 +9,20 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
-    #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas
-    - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
-    - { role: container, tags: 'container' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
-    - { role: terminal, tags: 'terminal' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - { role: common, tags: 'common' }            # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
+    - { role: container, tags: 'container' }      # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - { role: python, tags: 'python' }            # install miniconda and py3.8, py3.9, and py3.10 envrionments
+    - { role: sdkman, tags: 'sdkman' }            # Install sdkman
+    - { role: shell, tags: 'shell', version: v3.0.3 } # Shell related tasks (clones bash-it)
+    - { role: terminal, tags: 'terminal' }        # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - { role: tfenv, tags: 'tfenv' }              # Install tfenv to manage terraform version
+    - { role: vim_plugins, tags: 'vim_plugins' }  # setup vim pathogen and sync vim plugins
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- megasync     # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang
     #- keepass     # Install keepass
-    - sdkman      # Install sdkman
     #- slack       # Install slack
-    - { role: shell, tags: 'shell', version: v3.0.3 } # Shell related tasks (clones bash-it)
-    - { role: tfenv, tags: 'tfenv'  # Install tfenv to manage terraform version
     #- vagrant     # Install hashicorp vagrant
-    - vim_plugins # setup vim pathogen and sync vim plugins
     #- virtualbox  # Install virtualbox
     #- vscode      # Install visualstudiocode
     # Ubuntu specific roles:
