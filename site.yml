@@ -11,7 +11,8 @@
   roles:
     #- { role: mas, when: ansible_os_family == 'Darwin' } # Mac Apps Store, mas
     - common      # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
-    - terminal    # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - { role: container, tags: 'container' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - { role: terminal, tags: 'terminal' }  # install a terminal (iterm2 for mac and qterminal for ubuntu)
     #- awscli      # pip3 install awscli (mac and ubuntu)
     #- docker      # Docker repo and install packages or from brew cask for mac
     #- megasync     # Install megasync from deb package or from brew cask for mac
@@ -19,8 +20,8 @@
     #- keepass     # Install keepass
     - sdkman      # Install sdkman
     #- slack       # Install slack
-    - { role: shell, version: v3.0.3 } # Shell related tasks (clones bash-it)
-    - tfenv       # Install tfenv to manage terraform version
+    - { role: shell, tags: 'shell', version: v3.0.3 } # Shell related tasks (clones bash-it)
+    - { role: tfenv, tags: 'tfenv'  # Install tfenv to manage terraform version
     #- vagrant     # Install hashicorp vagrant
     - vim_plugins # setup vim pathogen and sync vim plugins
     #- virtualbox  # Install virtualbox
