@@ -28,5 +28,5 @@ jobs:
 
       - name: Run ansible on ${{ matrix.os }}
         run: |
-          ansible-playbook -i hosts site.yml -c local
+          ansible-playbook -i hosts site.yml -c local -v
 
