@@ -6,12 +6,12 @@
     depth: 1
   become_user: '{{ user }}'
 
-- name: Link tfenv to /usr/local/bin
-  file:
-    src: "{{ local_home }}/.tfenv/bin/{{ item }}"
-    dest: "/usr/local/bin/{{ item }}"
-    state: link
-  loop:
-    - tfenv
-    - terraform
-  become: yes
+  #- name: Link tfenv to /usr/local/bin
+  #  file:
+  #    src: "{{ local_home }}/.tfenv/bin/{{ item }}"
+  #    dest: "/usr/local/bin/{{ item }}"
+  #    state: link
+  #  loop:
+  #    - tfenv
+  #    - terraform
+  #  become: yes
