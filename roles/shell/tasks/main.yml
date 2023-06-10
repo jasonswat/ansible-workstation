@@ -9,7 +9,7 @@
 
 - name: Install GNU bash since MacOs uses old version
   homebrew: name=bash state=present
-  when: ansible_distribution == "Darwin"
+  when: ansible_os_family == "Darwin"
 
 
 - name: Create shell directories

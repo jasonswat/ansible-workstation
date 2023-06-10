@@ -26,5 +26,5 @@
     #- virtualbox  # Install virtualbox
     #- vscode      # Install visualstudiocode
     # Ubuntu specific roles:
-    - { role: conky, when: ansible_os_family == 'Ubuntu' } # Conky performace wigit for ubuntu desktop
-    - { role: pinta, when: ansible_os_family == 'Ubuntu' } # Ubuntu only - install simple paint application
+    - { role: conky, when: ansible_os_family == 'Debian' } # Conky performace wigit for ubuntu desktop
+    - { role: pinta, when: ansible_os_family == 'Debian' } # Ubuntu only - install simple paint application

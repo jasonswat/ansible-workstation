@@ -4,8 +4,8 @@
     name: slack 
     classic: yes
   become: yes
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
 
 - name: Install Slack from homebrew cask
   homebrew_cask: name=slack state=present
-  when: ansible_distribution == "Darwin"
+  when: ansible_os_family == "Darwin"
