@@ -9,7 +9,7 @@
   apt: update_cache=yes cache_valid_time=3600
   become: yes
 
-- name: Install ubuntu packages
+- name: Install ubuntu common packages
   apt: pkg={{ common_packages }} state=present
   become: yes
 
@@ -17,6 +17,6 @@
   apt: pkg={{ install_ubuntu_packages }} state=present
   become: yes
 
-- name: Remove Ubuntu packages 
+- name: Remove Ubuntu packages
   apt: pkg={{ remove_ubuntu_packages }} state=absent
   become: yes

@@ -13,7 +13,7 @@
 
 - name: vim | sync pathogen repo
   get_url:
-    url: https://tpo.pe/pathogen.vim 
+    url: https://tpo.pe/pathogen.vim
     dest: "{{ local_home }}/.vim/autoload/pathogen.vim"
     owner: '{{ user }}'
 

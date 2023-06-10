@@ -2,24 +2,24 @@
   apt: name=conky state=present
   become: yes
   tags: conky 
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
 
 - name: create config directory
   file:
     path: /home/{{ user }}/.config/autostart
     state: directory
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
 
 - name: configure autostart 
   template: 
     src: conky.desktop.j2 
     dest: /home/{{ user }}/.config/autostart/conky.desktop
   tags: conky 
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
 
 - name: .conkyrc
   template: 
     src: conkyrc.j2 
     dest: /home/{{ user }}/.conkyrc
   tags: conky 
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"

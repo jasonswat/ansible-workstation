@@ -1,4 +1,10 @@
 ---
+- name: install homebrew
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  become: yes
+  args:
+    creates: "{{ homebrew_path[ansible_architecture] }}"
+
 - name: install common packages from brew
   homebrew: name={{ common_packages }} state=present
 

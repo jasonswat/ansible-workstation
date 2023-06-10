@@ -1,4 +1,0 @@
-- include_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-- include_tasks: darwin.yml
-  when: ansible_os_family == 'Darwin'

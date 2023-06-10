@@ -1,0 +1,32 @@
+name: test ansible-playbook on Macos and Ubuntu
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test_ansible_run:
+    strategy:
+      matrix:
+        os: [macos-12, macos-13, ubuntu-20.04, ubuntu-22.04]
+        python: ['3.10']
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup python ${{ matrix.python }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: pip install ansible on ${{ matrix.os }}
+        run: |
+          pip3 install ansible
+
+      - name: Run ansible on ${{ matrix.os }}
+        run: |
+          ansible-playbook -i hosts site.yml -c local -v
+

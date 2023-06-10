@@ -1,4 +1,8 @@
 ---
+homebrew_path:
+  x86_64: "/usr/local/bin/brew"
+  arm64: "/opt/homebrew/bin/brew"
+
 # packages that can be installed with apt/ubuntu or brew/darwin
 common_packages:
 - bzip2
@@ -37,9 +41,7 @@ install_ubuntu_packages:
 - dkms
 - git-core
 - git-flow
-- git-email
 - git-extras
-- golang-go
 - gnupg-agent
 - gstreamer1.0-alsa
 - gstreamer1.0-plugins-base-apps
@@ -52,7 +54,6 @@ install_ubuntu_packages:
 - pwgen
 - pulseaudio
 - pydf
-- redshift-gtk
 - software-properties-common
 - silversearcher-ag
 - smbclient
@@ -99,4 +100,4 @@ remove_ubuntu_packages:
 - quadrapassel
 - swell-foop
 - tali
-- unity-webapps-common 
+- unity-webapps-common

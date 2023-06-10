@@ -4,8 +4,8 @@
     name: code
     classic: yes
   become: yes
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
 
 - name: Install VSCode from homebrew cask
   homebrew_cask: name=visual-studio-code state=present
-  when: ansible_distribution == "Darwin"
+  when: ansible_os_family == "Darwin"
