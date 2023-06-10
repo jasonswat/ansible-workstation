@@ -4,6 +4,7 @@
     url: "{{ downloads[ansible_os_family][ansible_architecture]['script'] }}"
     checksum: "{{ downloads[ansible_os_family][ansible_architecture]['checksum'] }}"
     dest: "{{ local_home }}/conda_install.sh"
+    mode: '0755'
     owner: '{{ user }}'
 
 - name: install miniconda
