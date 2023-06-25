@@ -1,3 +1,14 @@
----
-- include: darwin.yml
-  when: ansible_os_family == 'Darwin'
+- name: pip3 install awscli
+  pip:
+    name: awscli
+    executable: pip3
+    state: present
+  tags:
+  - aws
+
+- name: Extract gcloud archive
+  unarchive:
+    src: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-{{ gcp_version }}-{{ ansible_system|lower }}-{{ arch }}.tar.gz"
+    dest: "{{ local_home }}"
+    creates: "{{ local_home }}/google-cloud-sdk"
+    remote_src: yes

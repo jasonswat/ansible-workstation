@@ -15,6 +15,7 @@
     - {role: nodejs, tags: 'nodejs', version: v0.39.1}  # Install nvm (node version manager)
     - {role: sdkman, tags: 'sdkman'}                    # Install sdkman
     - {role: shell, tags: 'shell', version: v3.0.3}     # Shell related tasks (clones bash-it)
+    - {role: cloud, tags: 'cloud'}
     - {role: terminal, tags: 'terminal'}                # install iterm2 for mac and qterminal for ubuntu
     - {role: tfenv, tags: 'tfenv'}                      # Install tfenv terraform version manger
     - {role: vim_plugins, tags: 'vim_plugins'}          # setup vim pathogen and sync vim plugins

@@ -3,33 +3,31 @@ Ansible Workstation
 
 This is an ansible playbook to install development tools on
 ubuntu (20.04, 22.04) or Macos workstation (amd64 or arm64).
-Check the site.yml for list of roles it will install, here are some:
+Check the site.yml for list of roles it will install, examples:
 
-  - awscli
   - [bash_it](https://github.com/Bash-it/bash-it)
   - [sdkman](https://sdkman.io/)
-  - conky
+  - terminal # install iterm2(macos) or qterminal(ubuntu)
   - podman
   - kubectl
   - slack
-  - [tfenv](https://github.com/tfutils/tfenv) terraform version manager
+  - [tfenv](https://github.com/tfutils/tfenv) # terraform version manager
   - vim plugins
-
 
 Requirements
 -----------
-
-#### Clone Repo
-
-```
-git clone
-```
 
 #### Install Ansible
 
 ```
 sudo apt-get install -y git python3-pip (ubuntu only)
 pip3 install ansible
+```
+
+#### Clone Repo
+
+```
+git clone
 ```
 
 #### (Mac Only) Install Brew:

@@ -1,6 +1,0 @@
----
-- name: pip3 install awscli
-  pip:
-    name: awscli
-    executable: pip3
-    state: present
