@@ -24,7 +24,7 @@ jobs:
 
       - name: pip install ansible on ${{ matrix.os }}
         run: |
-          pip3 install ansible
+          pip3 install ansible=='2.9.1'
 
       - name: Run ansible on ${{ matrix.os }}
         run: |
