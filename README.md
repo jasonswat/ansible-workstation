@@ -13,6 +13,7 @@ Check the site.yml for list of roles it will install, examples:
   - slack
   - [tfenv](https://github.com/tfutils/tfenv) # terraform version manager
   - vim plugins
+  - megasync # cloud storage for to store keepass
 
 Requirements
 -----------
@@ -28,14 +29,6 @@ pip3 install ansible
 
 ```
 git clone
-```
-
-#### (Mac Only) Install Brew:
-
-Install brew
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 Default installation

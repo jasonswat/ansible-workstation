@@ -12,3 +12,8 @@
     dest: "{{ local_home }}"
     creates: "{{ local_home }}/google-cloud-sdk"
     remote_src: yes
+
+- name: Install glcoud command line
+  command: "{{ local_home }}/google-cloud-sdk/install.sh"
+  args:
+    creates: "{{ local_home }}/google-cloud-sdk/lib/googlecloudsdk/"
