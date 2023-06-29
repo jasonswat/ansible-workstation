@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Used for checking values of Ansible operating system variables
+    ansible.builtin.debug:
+      var: "{{ item }}"
+    loop:
+      - ansible_architecture
+      - ansible_os_family
+      - ansible_system
+      - ansible_machine
+      - ansible_distribution_release
+      - ansible_distribution_major_version
+      - ansible_distribution_version
+
+  - name: Testing setting variable
+    ansible.builtin.set_fact:
+      gcpversion: 433.0.1
+      arch: "{{ 'arm' if ansible_architecture == 'arm64' else ansible_architecture }}"
+
+  - name: Printing variables
+    ansible.builtin.debug:
+      msg:
+        - "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-{{ gcpversion }}-{{ ansible_system }}-{{ arch }}.tar.gz"
