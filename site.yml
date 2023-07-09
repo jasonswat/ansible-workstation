@@ -20,7 +20,6 @@
     - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode
-    #- awscli      # pip3 install awscli (mac and ubuntu)
     #- megasync    # Install megasync from deb package or from brew cask for mac
     #- golang      # Install golang
     #- keepass     # Install keepass
