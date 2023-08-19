@@ -1,4 +1,30 @@
-- include: debian.yml
-  when: ansible_os_family == "Debian"
-- include: darwin.yml
-  when: ansible_os_family == 'Darwin'
+- name: download golang tarball
+  vars:
+    file_extension: "{{ 'pkg' if ansible_system == 'Darwin' else 'tar.gz' }}"
+  get_url:
+    url: "https://go.dev/dl/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.{{ file_extension }}"
+    dest: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.{{ file_extension }}"
+
+- name: extract tar on Debian
+  become: yes
+  unarchive:
+    src: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.tar.gz"
+    dest: "/usr/local"
+    become: yes
+    creates: "/usr/local/go"
+    when: ansible_system == 'Linux'
+
+- name: install golang pkg file
+  become: yes
+  shell: "installer -pkg {{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ ansible_architecture }}.pkg -target /"
+  args:
+    executable: /bin/bash
+    creates: "/usr/local/go"
+  when: ansible_system == 'Darwin'
+
+- name: Remove golang pkg after install
+  vars:
+    file_extension: "{{ 'pkg' if ansible_system == 'Darwin' else 'tar.gz' }}"
+  file:
+    path: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ ansible_architecture }}.{{ file_extension }}"
+    state: "absent"
