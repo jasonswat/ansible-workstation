@@ -5,11 +5,11 @@
 
 - name: download golang tarball
   get_url:
-    url: "https://dl.google.com/go/go1.13.7.linux-amd64.tar.gz" 
-    dest: "/home/{{ user }}/src/go1.13.7.linux-amd64.tar.gz"
-    sha256sum: "b3dd4bd781a0271b33168e627f7f43886b4c5d1c794a4015abf34e99c6526ca3" 
+    url: "https://dl.google.com/go/go{{ version }}.linux-amd64.tar.gz"
+    dest: "/home/{{ user }}/src/go{{ version }}.linux-amd64.tar.gz"
+    sha256sum: "b3dd4bd781a0271b33168e627f7f43886b4c5d1c794a4015abf34e99c6526ca3"
 
 - name: extract
   unarchive:
-    src: "/home/{{ user }}/src/go1.13.7.linux-amd64.tar.gz"
-    dest: "/home/{{ user }}/" 
+    src: "/home/{{ user }}/src/go{{ version }}.linux-amd64.tar.gz"
+    dest: "/home/{{ user }}/"
