@@ -1,10 +1,18 @@
 ---
 - hosts: localhost
   tasks:
+  - name: Test setting fact variable
+    ansible.builtin.set_fact:
+      gcpversion: 433.0.1
+      arch: "{{ 'arm' if ansible_architecture == 'arm64' else ansible_architecture }}"
+      arch2: "{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+
   - name: Used for checking values of Ansible operating system variables
     ansible.builtin.debug:
       var: "{{ item }}"
     loop:
+      - arch
+      - arch2
       - ansible_architecture
       - ansible_os_family
       - ansible_system
@@ -13,11 +21,6 @@
       - ansible_distribution_release
       - ansible_distribution_major_version
       - ansible_distribution_version
-
-  - name: Testing setting variable
-    ansible.builtin.set_fact:
-      gcpversion: 433.0.1
-      arch: "{{ 'arm' if ansible_architecture == 'arm64' else ansible_architecture }}"
 
   - name: Printing variables
     ansible.builtin.debug:

@@ -1,30 +1,34 @@
-- name: download golang tarball
+- name: Setting fact variable for amd64
+  ansible.builtin.set_fact:
+    arch: "{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+
+- name: Download golang installation package
   vars:
     file_extension: "{{ 'pkg' if ansible_system == 'Darwin' else 'tar.gz' }}"
   get_url:
-    url: "https://go.dev/dl/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.{{ file_extension }}"
-    dest: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.{{ file_extension }}"
+    url: "https://go.dev/dl/go{{ version }}.{{ ansible_system|lower }}-{{ arch }}.{{ file_extension }}"
+    dest: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ arch }}.{{ file_extension }}"
 
-- name: extract tar on Debian
+- name: Extract tar to /usr/local on Linux systems
   become: yes
   unarchive:
-    src: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ ansible_architecture }}.tar.gz"
+    src: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ arch }}.tar.gz"
     dest: "/usr/local"
     become: yes
     creates: "/usr/local/go"
     when: ansible_system == 'Linux'
 
-- name: install golang pkg file
+- name: Install pkg file on MacOS
   become: yes
-  shell: "installer -pkg {{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ ansible_architecture }}.pkg -target /"
+  shell: "installer -pkg {{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ arch }}.pkg -target /"
   args:
     executable: /bin/bash
     creates: "/usr/local/go"
   when: ansible_system == 'Darwin'
 
-- name: Remove golang pkg after install
+- name: Remove golang download after install
   vars:
     file_extension: "{{ 'pkg' if ansible_system == 'Darwin' else 'tar.gz' }}"
   file:
-    path: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ ansible_architecture }}.{{ file_extension }}"
+    path: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system }}-{{ arch }}.{{ file_extension }}"
     state: "absent"

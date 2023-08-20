@@ -13,6 +13,7 @@ Check the site.yml for list of roles it will install, examples:
   - slack
   - [tfenv](https://github.com/tfutils/tfenv) # terraform version manager
   - vim plugins
+  - golang
   - megasync # cloud storage for to store keepass
 
 Requirements
@@ -21,7 +22,7 @@ Requirements
 #### Install Ansible
 
 ```
-sudo apt-get install -y git python3-pip (ubuntu only)
+sudo apt-get install -y git python3-pip # ubuntu only
 pip3 install ansible
 ```
 
