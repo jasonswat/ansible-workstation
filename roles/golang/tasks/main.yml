@@ -1,3 +1,8 @@
+- name: Downloads directory exists
+  file:
+    path: "{{ local_home }}/Downloads"
+    state: directory
+
 - name: Setting fact variable for amd64
   ansible.builtin.set_fact:
     arch: "{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
