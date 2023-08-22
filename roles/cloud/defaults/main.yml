@@ -1,3 +1,9 @@
 ---
-version: 433.0.1
-checksum: 0810c27e41a1c258ce0f8bb2122459887cd8630db356da0fea276696d0308a44
+gcp_version: 433.0.1
+gcp_checksum:
+  Darwin:
+    arm64: 1866ee7a36a676c37717e99842b8d511
+    x86_64: b3e149eb5deb1024ace4c68e97c8f600
+  Linux:
+    x86_64: dfbf02d0945e0286c11d446a04e9ccab
+arch: "{{ 'arm' if ansible_architecture == 'arm64' else ansible_architecture }}"

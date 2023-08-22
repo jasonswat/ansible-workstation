@@ -1,46 +1,35 @@
 Ansible Workstation
 =======================
 
-This is an ansible playbook to configure ubuntu (18.04 - 18.10) or Mac workstation (tested on mojave).
-This playbook will install the following utilities:
+This is an ansible playbook to install development tools on
+ubuntu (20.04, 22.04) or Macos workstation (amd64 or arm64).
+Check the site.yml for list of roles it will install, examples:
 
-  - awscli
-  - conky
-  - docker
+  - [bash_it](https://github.com/Bash-it/bash-it)
+  - [sdkman](https://sdkman.io/)
+  - terminal # install iterm2(macos) or qterminal(ubuntu)
+  - podman
   - kubectl
-  - pinta
   - slack
-  - terraform
-  - vim
-
+  - [tfenv](https://github.com/tfutils/tfenv) # terraform version manager
+  - vim plugins
+  - golang
+  - megasync # cloud storage for to store keepass
 
 Requirements
 -----------
+
+#### Install Ansible
+
+```
+sudo apt-get install -y git python3-pip # ubuntu only
+pip3 install ansible
+```
 
 #### Clone Repo
 
 ```
 git clone
-```
-
-#### Install Ansible
-
-```
-sudo apt-get install -y git python3-pip (ubuntu only)
-pip3 install ansible
-
-```
-
-#### (Mac Only) Install required galaxy playbooks:
-
-```
-ansible-galaxy install -r requirements.yml
-```
-
-Install brew
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 Default installation
@@ -58,12 +47,19 @@ Run the Playbook
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local
 ```
 
-Additional Configuration and Drivers
+Run the Playbook on specific roles:
+
+```
+$ ansible-playbook --ask-become-pass -i hosts site.yml -c local --tags "sdkman,tfenv"
+```
+
+Additional Configuration and Drivers (TODO)
 ------------------------------------
 
 D3100 Docking station
 
 https://www.displaylink.com/downloads/ubuntu
+
 =======
 Post Setup
 ----------
