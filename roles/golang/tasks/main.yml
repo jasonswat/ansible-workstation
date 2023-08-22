@@ -19,7 +19,6 @@
   unarchive:
     src: "{{ local_home }}/Downloads/go{{ version }}.{{ ansible_system|lower }}-{{ arch }}.tar.gz"
     dest: "/usr/local"
-    become: yes
     creates: "/usr/local/go"
     when: ansible_system == 'Linux'
 
