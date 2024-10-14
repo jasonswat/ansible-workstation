@@ -15,7 +15,7 @@ common_packages:
 - jq
 - nmap
 - ngrep
-- netcat
+- netcat-openbsd 
 - openssl
 - pssh
 - shellcheck
@@ -61,7 +61,6 @@ install_ubuntu_packages:
 - tar
 - unzip
 - ubuntu-restricted-extras
-- vim-gtk
 - vlc
 - wireless-tools
 - xorg

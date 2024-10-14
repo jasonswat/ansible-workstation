@@ -1,13 +1,5 @@
-- name: Add keepass ppa repo
-  apt_repository:
-    repo: ppa:jtaylor/keepass
-    codename: '{{ ansible_distribution_release }}'
-  become: yes
-
-- name: Update cache
-  apt: update_cache=yes cache_valid_time=3600
-  become: yes
-
-- name: Install keepass apt package
-  apt: pkg=keepass2 state=present
+- name: Install Keepassxc from snap
+  snap:
+    name: keepassxc
+    classic: yes
   become: yes

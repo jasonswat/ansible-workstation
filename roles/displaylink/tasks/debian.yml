@@ -1,0 +1,12 @@
+- name: Install displaylink apt repository 
+  apt:
+     deb: https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb
+  become: yes
+
+- name: Update cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Install displaylink package 
+  apt: pkg=displaylink-driver state=present
+  become: yes

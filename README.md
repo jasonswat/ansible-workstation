@@ -29,7 +29,7 @@ pip3 install ansible
 #### Clone Repo
 
 ```
-git clone
+git clone https://github.com/jasonswat/ansible-workstation.git
 ```
 
 Default installation

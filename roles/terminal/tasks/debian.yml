@@ -1,3 +1,6 @@
-- name: Install qterminal 
-  apt: pkg=qterminal state=present
+#- name: Install qterminal 
+#  apt: pkg=qterminal state=present
+#  become: yes
+- name: Install kitty terminal 
+  apt: pkg=kitty state=present
   become: yes

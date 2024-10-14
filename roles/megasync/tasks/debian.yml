@@ -1,8 +1,10 @@
-- name: Install deb package 
-  apt:
-    deb: https://www.megasoftware.net/do_force_download/megax-cc_10.2.6-1_amd64.deb 
-  become: yes
+- name: Create megasync directory
+  file:
+    path: '{{ local_home }}/MEGAsync'
+    state: directory
+    owner: '{{ user }}'
 
-- name: Install python3-gpg
-  apt: pkg=python3-gpg state=present
+- name: Install megasync desktop
+  apt:
+     deb: https://mega.nz/linux/repo/xUbuntu_{{ ansible_distribution_version }}/amd64/megasync-xUbuntu_{{ ansible_distribution_version }}_amd64.deb 
   become: yes
