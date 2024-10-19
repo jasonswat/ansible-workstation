@@ -39,6 +39,7 @@ install_ubuntu_packages:
 - bluez
 - build-essential
 - dkms
+- gimp
 - git-core
 - git-flow
 - git-extras

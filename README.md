@@ -5,16 +5,17 @@ This is an ansible playbook to install development tools on
 ubuntu (20.04, 22.04) or Macos workstation (amd64 or arm64).
 Check the site.yml for list of roles it will install, examples:
 
-  - [bash_it](https://github.com/Bash-it/bash-it)
-  - [sdkman](https://sdkman.io/)
-  - terminal # install iterm2(macos) or qterminal(ubuntu)
-  - podman
+  - [bash_it](https://github.com/Bash-it/bash-it) - Shell aliases and Terminal hacks
+  - [sdkman](https://sdkman.io/) - Version manager for Java, Kotlin, Gradle, and many other java tools
+  - [kitty terminal](https://sw.kovidgoyal.net/kitty) - Terminal for mac and linux
+  - podman/Docker
   - kubectl
   - slack
-  - [tfenv](https://github.com/tfutils/tfenv) # terraform version manager
+  - [tfenv](https://github.com/tfutils/tfenv) - Terraform version manager
   - vim plugins
   - golang
-  - megasync # cloud storage for to store keepass
+  - nodejs
+  - megasync - Cloud storage for to store keepass
 
 Requirements
 -----------
@@ -53,12 +54,11 @@ Run the Playbook on specific roles:
 $ ansible-playbook --ask-become-pass -i hosts site.yml -c local --tags "sdkman,tfenv"
 ```
 
-Additional Configuration and Drivers (TODO)
-------------------------------------
+Or use the Makefile:
 
-D3100 Docking station
-
-https://www.displaylink.com/downloads/ubuntu
+```
+make ansible/role role=conky
+```
 
 =======
 Post Setup
