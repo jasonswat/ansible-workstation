@@ -1,0 +1,6 @@
+---
+- name: install pinta from snap 
+  snap:
+    name: pinta 
+    classic: yes
+  become: yes
