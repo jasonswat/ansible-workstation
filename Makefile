@@ -10,5 +10,8 @@ ansible/role: ## ansible run role role=rolename
 ansible/check: ## run ansible in check mode (dry run)
 	@ansible-playbook --ask-become-pass --check -i hosts site.yml -c local
 
+ansible/all: ## run ansible on all roles (install everything)
+	@ansible-playbook --ask-become-pass -i hosts site.yml -c local
+
 ansible/testvars: ## run ansible against test_vars.yaml, prints out os related variables 
 	@ansible-playbook -i hosts test_vars.yml
