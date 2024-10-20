@@ -24,7 +24,7 @@ common_packages:
 - wget
 - yamllint
 
-# packaged only found on ubuntu
+# packages only installed on ubuntu
 install_ubuntu_packages:
 - alsa-base
 - alsa-utils
@@ -66,6 +66,7 @@ install_ubuntu_packages:
 - wireless-tools
 - xorg
 
+# packages only installed on macos with brew 
 brew_packages:
 - autoconf
 - automake
@@ -80,6 +81,7 @@ brew_packages:
 - packer
 - the_silver_searcher
 
+# packages removed from ubuntu (mostly games that get installed on desktop editions)
 remove_ubuntu_packages:
 - aisleriot
 - ack
