@@ -17,7 +17,7 @@
     - {role: sdkman, tags: 'sdkman'}                   # Install sdkman newest version
     - {role: cloud, tags: 'cloud'}                     # gcloud, kubectl, awscli
     - {role: terminal, tags: 'terminal'}               # install kitty terminal
-    - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger
+    - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger latest from main
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode
     - {role: golang, tags: 'golang', version: 1.21.0}  # Install golang
