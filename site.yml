@@ -9,13 +9,13 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
+    - {role: shell, tags: 'shell', version: v3.0.3}    # Shell related tasks (clones bash-it)
     - {role: common, tags: 'common'}                   # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - {role: container, tags: 'container'}             # install container tools 
     - {role: python, tags: 'python'}                   # install miniconda and py3.8, py3.9, and py3.10 envrionments
     - {role: nodejs, tags: 'nodejs', version: v0.39.1} # Install nvm (node version manager)
     - {role: sdkman, tags: 'sdkman'}                   # Install sdkman newest version
-    - {role: shell, tags: 'shell', version: v3.0.3}    # Shell related tasks (clones bash-it)
-    - {role: cloud, tags: 'cloud'}
+    - {role: cloud, tags: 'cloud'}                     # gcloud, kubectl, awscli
     - {role: terminal, tags: 'terminal'}               # install kitty terminal
     - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
