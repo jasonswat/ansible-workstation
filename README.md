@@ -2,6 +2,7 @@
 =======================
 
 Tested on github actions [public runners](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories)
+
 ![workflow](https://github.com/jasonswat/ansible-workstation/actions/workflows/build.yml/badge.svg?branch=main)
 
 
