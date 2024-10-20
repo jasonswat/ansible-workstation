@@ -1,6 +1,7 @@
 # Ansible Workstation
 =======================
 
+Tested on github actions [public runners](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories)
 ![workflow](https://github.com/jasonswat/ansible-workstation/actions/workflows/build.yml/badge.svg?branch=main)
 
 
@@ -12,10 +13,12 @@ Check the site.yml for list of roles it will install, examples:
   - [bash_it](https://github.com/Bash-it/bash-it) - Shell aliases and Terminal hacks
   - [sdkman](https://sdkman.io/) - Version manager for Java, Kotlin, Gradle, and many other java tools
   - [kitty terminal](https://sw.kovidgoyal.net/kitty) - Terminal for mac and linux
-  - conmtainer - podman/Docker
-  - slack
+  - container tools - podman/Docker
+  - [keepass](https://keepass.info/index.html)
+  - [slack](https://slack.com/)
   - [tfenv](https://github.com/tfutils/tfenv) - Terraform version manager
-  - vim plugins
+  - [vim plugins](https://github.com/jasonswat/ansible-workstation/blob/dev/roles/vim_plugins/defaults/main.yml)
+  - python - [miniconda](https://docs.anaconda.com/miniconda/) python environment manager
   - golang
   - nodejs
   - megasync - Cloud storage for to store keepass
