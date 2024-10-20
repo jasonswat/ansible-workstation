@@ -15,7 +15,6 @@ common_packages:
 - jq
 - nmap
 - ngrep
-- netcat
 - openssl
 - pssh
 - shellcheck
@@ -25,7 +24,7 @@ common_packages:
 - wget
 - yamllint
 
-# packaged only found on ubuntu
+# packages only installed on ubuntu
 install_ubuntu_packages:
 - alsa-base
 - alsa-utils
@@ -39,6 +38,7 @@ install_ubuntu_packages:
 - bluez
 - build-essential
 - dkms
+- gimp
 - git-core
 - git-flow
 - git-extras
@@ -49,6 +49,7 @@ install_ubuntu_packages:
 - linux-headers-generic
 - mtr
 - mc
+- netcat-openbsd
 - nnn
 - openssh-server
 - pwgen
@@ -61,11 +62,11 @@ install_ubuntu_packages:
 - tar
 - unzip
 - ubuntu-restricted-extras
-- vim-gtk
 - vlc
 - wireless-tools
 - xorg
 
+# packages only installed on macos with brew 
 brew_packages:
 - autoconf
 - automake
@@ -80,6 +81,7 @@ brew_packages:
 - packer
 - the_silver_searcher
 
+# packages removed from ubuntu (mostly games that get installed on desktop editions)
 remove_ubuntu_packages:
 - aisleriot
 - ack

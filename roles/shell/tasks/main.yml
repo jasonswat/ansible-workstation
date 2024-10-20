@@ -22,3 +22,4 @@
     - "{{ local_home }}/.shell"
     - "{{ local_home }}/.ssh"
     - "{{ local_home }}/.ssh/config.d"
+    - "{{ local_home }}/bin"

@@ -9,24 +9,22 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
+    - {role: shell, tags: 'shell', version: v3.0.3}    # Shell related tasks (clones bash-it)
     - {role: common, tags: 'common'}                   # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
-    - {role: container, tags: 'container'}             # install a terminal (iterm2 for mac and qterminal for ubuntu)
+    - {role: container, tags: 'container'}             # install container tools 
     - {role: python, tags: 'python'}                   # install miniconda and py3.8, py3.9, and py3.10 envrionments
     - {role: nodejs, tags: 'nodejs', version: v0.39.1} # Install nvm (node version manager)
-    - {role: sdkman, tags: 'sdkman'}                   # Install sdkman
-    - {role: shell, tags: 'shell', version: v3.0.3}    # Shell related tasks (clones bash-it)
-    - {role: cloud, tags: 'cloud'}
-    - {role: terminal, tags: 'terminal'}               # install iterm2 for mac and qterminal for ubuntu
-    - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger
+    - {role: sdkman, tags: 'sdkman'}                   # Install sdkman newest version
+    - {role: cloud, tags: 'cloud'}                     # gcloud, kubectl, awscli
+    - {role: terminal, tags: 'terminal'}               # install kitty terminal
+    - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger latest from main
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode
     - {role: golang, tags: 'golang', version: 1.21.0}  # Install golang
-    #- awscli      # pip3 install awscli (mac and ubuntu)
-    #- megasync    # Install megasync from deb package or from brew cask for mac
-    #- keepass     # Install keepass
-    #- slack       # Install slack
-    #- vagrant     # Install hashicorp vagrant
-    #- virtualbox  # Install virtualbox
+    - {role: megasync, tags: 'megasync'}  # Install Megasync - Cloud storage for syncing accross devices
+    - {role: keepass, tags: 'keepass', version: 11.0.13}  # Install keepass 
+    - {role: displaylink, tags: 'displaylink'}          # Install displaylink drivers for docking station 
+    - {role: jetbrains, tags: 'jetbrains', version: 2.4.2.32922}  # Install jetbrains toolbox 
     # Ubuntu specific roles:
-    - {role: conky, when: ansible_os_family == 'Debian'}  # Conky performace wigit for ubuntu desktop
-    - {role: pinta, when: ansible_os_family == 'Debian'}  # Ubuntu only - install simple paint application
+    - {role: conky, tags: 'conky' }  # Conky performace wigit for ubuntu desktop
+    - {role: pinta, tags: 'pinta' }  # Ubuntu only - install simple paint application

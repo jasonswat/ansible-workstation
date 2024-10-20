@@ -1,4 +1,4 @@
-name: test ansible-playbook on Macos and Ubuntu
+name: Run ansible-playbook on Macos and Ubuntu
 
 on:
   push:
@@ -8,9 +8,8 @@ jobs:
   test_ansible_run:
     strategy:
       matrix:
-        os: [macos-12, macos-13, ubuntu-20.04]
-        # os: [macos-12, macos-13, ubuntu-20.04, ubuntu-22.04]
-        python: ['3.10']
+        os: [macos-13, macos-14, ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
+        python: ['3.12']
 
     runs-on: ${{ matrix.os }}
 
@@ -25,7 +24,7 @@ jobs:
 
       - name: pip install ansible on ${{ matrix.os }}
         run: |
-          pip3 install ansible=='2.10.7'
+          pip3 install ansible=='10.5.0'
 
       - name: Run ansible on ${{ matrix.os }}
         run: |

@@ -1,4 +1,2 @@
----
-- name: install pinta from apt 
-  become: yes
-  apt: pkg=pinta state=present
+- include_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
