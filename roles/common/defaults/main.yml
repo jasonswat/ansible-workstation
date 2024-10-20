@@ -15,7 +15,6 @@ common_packages:
 - jq
 - nmap
 - ngrep
-- netcat-openbsd 
 - openssl
 - pssh
 - shellcheck
@@ -50,6 +49,7 @@ install_ubuntu_packages:
 - linux-headers-generic
 - mtr
 - mc
+- netcat-openbsd
 - nnn
 - openssh-server
 - pwgen
