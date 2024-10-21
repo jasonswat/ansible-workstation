@@ -17,11 +17,11 @@ Tested on github actions [public runners](https://docs.github.com/en/actions/usi
   - [slack](https://slack.com/)
   - [tfenv](https://github.com/tfutils/tfenv) - Terraform version manager
   - [vim plugins](https://github.com/jasonswat/ansible-workstation/blob/dev/roles/vim_plugins/defaults/main.yml)
-  - python - [miniconda](https://docs.anaconda.com/miniconda/) python environment manager
-  - golang
+  - [miniconda](https://docs.anaconda.com/miniconda/) - python environment manager
+  - [golang](https://go.dev/)
   - [nvm](https://github.com/nvm-sh/nvm) - Node Version Manager for running multiple nodejs environments
-  - megasync - Cloud storage for to store keepass
-  - displaylink drivers 
+  - [megasync](https://mega.io/storage) - Cloud storage to store files between devices
+  - [displaylink](https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu) drivers for Dell docking station 
 
 ## Pre-requisites
 
