@@ -1,6 +1,44 @@
-#- name: Install qterminal 
-#  apt: pkg=qterminal state=present
-#  become: yes
-- name: Install kitty terminal 
-  apt: pkg=kitty state=present
+---
+# Install specific Ghostty version that is compatible with dependencies
+- name: Set Ghostty .deb filename and URL (fixed version)
+  ansible.builtin.set_fact:
+    ghostty_deb_filename: "ghostty_1.1.3-5+bookworm_amd64.deb"
+    ghostty_deb_url: "https://github.com/dariogriffo/ghostty-debian/releases/download/1.1.3%2B5/ghostty_1.1.3-5+bookworm_amd64.deb"
+  when: "ansible_distribution in ['Debian','Ubuntu']"
+
+- name: Download Ghostty .deb
+  ansible.builtin.get_url:
+    url: "{{ ghostty_deb_url }}"
+    dest: /tmp/ghostty_latest.deb
+    mode: '0644'
+  register: ghostty_deb_download
+  failed_when: false
+  when: "ansible_distribution in ['Debian','Ubuntu'] and ghostty_deb_url is defined and ghostty_deb_url is not none"
+
+- name: Ensure Ghostty build/runtime dependencies are installed
   become: yes
+  ansible.builtin.apt:
+    name:
+      - libgtk-layer-shell0
+      - libgtk-4-dev
+      - libgdk-pixbuf-2.0-0
+      - libxkbcommon0
+      - libwayland-client0
+      - libepoxy0
+    state: present
+    update_cache: yes
+  when: "ansible_distribution in ['Debian','Ubuntu']"
+- name: Install Ghostty .deb with dpkg
+  become: yes
+  ansible.builtin.command: dpkg -i /tmp/ghostty_latest.deb
+  register: dpkg_result
+  failed_when: false
+  changed_when: "dpkg_result.rc == 0"
+  when: "ansible_distribution in ['Debian','Ubuntu'] and ghostty_deb_download is defined and ghostty_deb_download.dest is defined"
+
+- name: Clean up downloaded Ghostty .deb
+  become: yes
+  ansible.builtin.file:
+    path: /tmp/ghostty_latest.deb
+    state: absent
+  when: "ghostty_deb_download is defined and ghostty_deb_download.dest is defined"

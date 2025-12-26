@@ -16,7 +16,7 @@
     - {role: nodejs, tags: 'nodejs', version: v0.39.1} # Install nvm (node version manager)
     - {role: sdkman, tags: 'sdkman'}                   # Install sdkman newest version
     - {role: cloud, tags: 'cloud'}                     # gcloud, kubectl, awscli
-    - {role: terminal, tags: 'terminal'}               # install kitty terminal
+    - {role: terminal, tags: 'terminal'}               # install ghostty terminal
     - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger latest from main
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode
