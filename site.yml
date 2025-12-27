@@ -9,7 +9,7 @@
     - user: "{{ lookup('env', 'USER') }}"
 
   roles:
-    - {role: shell, tags: 'shell', version: v3.0.3}    # Shell related tasks (clones bash-it)
+    - {role: shell, tags: 'shell', version: v3.2.0}    # Shell related tasks (clones bash-it)
     - {role: common, tags: 'common'}                   # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - {role: container, tags: 'container'}             # install container tools 
     - {role: python, tags: 'python'}                   # install miniconda and py3.8, py3.9, and py3.10 envrionments

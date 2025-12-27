@@ -12,7 +12,7 @@
   when: ansible_os_family == "Darwin"
 
 - name: Check whether Bash-It is already configured in shell rc files
-  ansible.builtin.shell: |
+  ansible.builtin.command: |
     grep -E "bash_it|bash-it" "{{ local_home }}/.bashrc" "{{ local_home }}/.bash_profile" 2>/dev/null || true
   register: bash_it_config_check
   changed_when: false
@@ -20,9 +20,9 @@
   become_user: '{{ user }}'
 
 - name: Install Bash-It via its installer if not configured
-  ansible.builtin.shell: |
-    bash install.sh --silent
+  ansible.builtin.shell: ./install.sh --silent
   args:
+    executable: /bin/bash
     chdir: "{{ local_home }}/.bash_it"
   become_user: '{{ user }}'
   when: "bash_it_config_check.stdout == ''"
