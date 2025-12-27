@@ -40,3 +40,17 @@
     - "{{ local_home }}/.ssh"
     - "{{ local_home }}/.ssh/config.d"
     - "{{ local_home }}/bin"
+
+- name: Ensure /etc/inputrc contains history search keybindings (Debian only)
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/inputrc
+    create: yes
+    block: |
+      # Enable history search with arrow keys
+      "\e[A": history-search-backward            # arrow up
+      "\e[B": history-search-forward             # arrow down
+    marker: "# {mark} ANSIBLE MANAGED: bash history search"
+  when: ansible_os_family == "Debian"
+  notify: Reload inputrc
+
