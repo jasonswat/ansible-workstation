@@ -1,8 +1,7 @@
 #- name: install iterm2 from homebrew cask 
 #  homebrew_cask: name=iterm2 state=present
 
-- name: install kitty from homebrew cask 
-  # Install Ghostty via Homebrew Cask (brew install --cask ghostty)
+- name: install Ghostty via Homebrew Tap (brew install ghostty)
   homebrew_cask:
     name: ghostty
     state: present
