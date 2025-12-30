@@ -11,6 +11,23 @@
   homebrew: name=bash state=present
   when: ansible_os_family == "Darwin"
 
+- name: Check whether Bash-It is already configured in shell rc files
+  ansible.builtin.command: |
+    grep -E "bash_it|bash-it" "{{ local_home }}/.bashrc" "{{ local_home }}/.bash_profile" 2>/dev/null || true
+  register: bash_it_config_check
+  changed_when: false
+  failed_when: false
+  become_user: '{{ user }}'
+
+- name: Install Bash-It via its installer if not configured
+  ansible.builtin.shell: ./install.sh --silent
+  args:
+    executable: /bin/bash
+    chdir: "{{ local_home }}/.bash_it"
+  become_user: '{{ user }}'
+  when: "bash_it_config_check.stdout == ''"
+  environment:
+    HOME: "{{ local_home }}"
 
 - name: Create shell directories
   file:
@@ -23,3 +40,17 @@
     - "{{ local_home }}/.ssh"
     - "{{ local_home }}/.ssh/config.d"
     - "{{ local_home }}/bin"
+
+- name: Ensure /etc/inputrc contains history search keybindings (Debian only)
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/inputrc
+    create: yes
+    block: |
+      # Enable history search with arrow keys
+      "\e[A": history-search-backward            # arrow up
+      "\e[B": history-search-forward             # arrow down
+    marker: "# {mark} ANSIBLE MANAGED: bash history search"
+  when: ansible_os_family == "Debian"
+  notify: Reload inputrc
+

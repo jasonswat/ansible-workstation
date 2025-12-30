@@ -2,6 +2,7 @@
 - name: Check if @google/gemini-cli is installed
   ansible.builtin.shell: |
     . {{ local_home }}/.nvm/nvm.sh
+    nvm use default
     npm list -g --depth=0 | grep @google/gemini-cli
   args:
     executable: /bin/bash
@@ -12,6 +13,7 @@
 - name: Install @google/gemini-cli
   ansible.builtin.shell: |
     . {{ local_home }}/.nvm/nvm.sh
+    nvm use default
     npm install -g @google/gemini-cli
   args:
     executable: /bin/bash

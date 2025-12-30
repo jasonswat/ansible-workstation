@@ -1,6 +1,39 @@
-#- name: Install qterminal 
-#  apt: pkg=qterminal state=present
-#  become: yes
-- name: Install kitty terminal 
-  apt: pkg=kitty state=present
+---
+# Check whether ghostty is already installed
+- name: Check if ghostty is already present
+  ansible.builtin.command: command -v ghostty
+  register: ghostty_check
+  changed_when: false
+  failed_when: false
+  when: "ansible_distribution in ['Debian','Ubuntu']"
+
+- name: Ensure Ghostty build/runtime dependencies are installed
   become: yes
+  ansible.builtin.apt:
+    name:
+      - libgtk-layer-shell0
+      - libgtk-4-dev
+      - libgdk-pixbuf-2.0-0
+      - libxkbcommon0
+      - libwayland-client0
+      - libepoxy0
+    state: present
+    update_cache: yes
+  when: "ansible_distribution in ['Debian','Ubuntu']"
+
+- name: Install Ghostty via mkasberg installer
+  become: yes
+  ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+  args:
+    executable: /bin/bash
+  register: ghostty_installer
+  failed_when: false
+  changed_when: "ghostty_installer.rc == 0"
+  when: "ansible_distribution in ['Debian','Ubuntu'] and ghostty_check.rc != 0"
+
+- name: Report Ghostty install outcome
+  ansible.builtin.debug:
+    msg: >-
+      Ghostty install attempted: rc={{ ghostty_installer.rc if ghostty_installer is defined else 'N/A' }}.
+      If installation failed, consider manual install from https://github.com/dariogriffo/ghostty-debian/releases or the mkasberg installer page.
+  when: "ansible_distribution in ['Debian','Ubuntu'] and (ghostty_installer is defined or ghostty_check is defined)"
