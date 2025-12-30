@@ -1,0 +1,20 @@
+---
+- name: Check if @google/gemini-cli is installed
+  ansible.builtin.shell: |
+    . {{ local_home }}/.nvm/nvm.sh
+    nvm use default
+    npm list -g --depth=0 | grep @google/gemini-cli
+  args:
+    executable: /bin/bash
+  register: gemini_check
+  changed_when: false
+  failed_when: false
+
+- name: Install @google/gemini-cli
+  ansible.builtin.shell: |
+    . {{ local_home }}/.nvm/nvm.sh
+    nvm use default
+    npm install -g @google/gemini-cli
+  args:
+    executable: /bin/bash
+  when: gemini_check.rc != 0
