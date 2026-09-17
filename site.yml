@@ -5,8 +5,8 @@
 - hosts: local
 
   vars:
-    - local_home: "{{ lookup('env', 'HOME') }}"
-    - user: "{{ lookup('env', 'USER') }}"
+    local_home: "{{ lookup('env', 'HOME') }}"
+    user: "{{ lookup('env', 'USER') }}"
 
   roles:
     - {role: shell, tags: 'shell', version: v3.2.0}    # Shell related tasks (clones bash-it)
