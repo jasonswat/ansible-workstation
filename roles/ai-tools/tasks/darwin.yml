@@ -1,4 +1,9 @@
 ---
+- name: Tap OpenCode Homebrew tap
+  homebrew_tap:
+    name: anomalyco/tap
+    state: present
+
 - name: Install OpenCode via Homebrew
   homebrew:
     name: anomalyco/tap/opencode
