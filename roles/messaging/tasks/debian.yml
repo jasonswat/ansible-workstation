@@ -1,0 +1,17 @@
+---
+- name: Install Signal signing key
+  shell: curl https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg && cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+  args:
+    creates: /usr/share/keyrings/signal-desktop-keyring.gpg
+
+- name: Add Signal repository
+  shell: curl -o signal-desktop.sources https://updates.signal.org/static/desktop/apt/signal-desktop.sources && cat signal-desktop.sources | sudo tee /etc/apt/sources.list.d/signal-desktop.sources > /dev/null
+  args:
+    creates: /etc/apt/sources.list.d/signal-desktop.sources
+
+- name: Install Signal
+  apt:
+    name: signal-desktop
+    state: present
+    update_cache: yes
+  become: yes

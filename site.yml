@@ -28,3 +28,4 @@
     # Ubuntu specific roles:
     - {role: conky, tags: 'conky' }  # Conky performace wigit for ubuntu desktop
     - {role: pinta, tags: 'pinta' }  # Ubuntu only - install simple paint application
+    - {role: messaging, tags: 'messaging'}  # Install Signal messaging app
