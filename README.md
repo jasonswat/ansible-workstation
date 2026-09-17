@@ -16,7 +16,7 @@ Tested on github actions [public runners](https://docs.github.com/en/actions/usi
   - [keepass](https://keepass.info/index.html)
   - [tfenv](https://github.com/tfutils/tfenv) - Terraform version manager
   - [vim plugins](https://github.com/jasonswat/ansible-workstation/blob/dev/roles/vim_plugins/defaults/main.yml)
-  - [miniconda](https://docs.anaconda.com/miniconda/) - python environment manager
+  - [uv](https://docs.astral.sh/uv/) - Fast Python package installer and resolver
   - [golang](https://go.dev/)
   - [nvm](https://github.com/nvm-sh/nvm) - Node Version Manager for running multiple nodejs environments
   - [megasync](https://mega.io/storage) - Cloud storage to store files between devices
