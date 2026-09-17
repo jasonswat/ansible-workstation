@@ -1,23 +1,36 @@
 ---
-- name: download miniconda
-  get_url:
-    url: "{{ downloads[ansible_os_family][ansible_architecture]['script'] }}"
-    checksum: "{{ downloads[ansible_os_family][ansible_architecture]['checksum'] }}"
-    dest: "{{ local_home }}/conda_install.sh"
-    mode: '0755'
-    owner: '{{ user }}'
+# Miniconda install (commented out - use uv instead)
+# - name: download miniconda
+#   get_url:
+#     url: "{{ downloads[ansible_os_family][ansible_architecture]['script'] }}"
+#     checksum: "{{ downloads[ansible_os_family][ansible_architecture]['checksum'] }}"
+#     dest: "{{ local_home }}/conda_install.sh"
+#     mode: '0755'
+#     owner: '{{ user }}'
 
-- name: install miniconda
-  shell: "{{ local_home }}/conda_install.sh -b -p {{ local_home }}/miniconda"
-  args:
-    executable: /bin/bash
-    creates: "{{ local_home }}/miniconda/bin/conda"
+# - name: install miniconda
+#   shell: "{{ local_home }}/conda_install.sh -b -p {{ local_home }}/miniconda"
+#   args:
+#     executable: /bin/bash
+#     creates: "{{ local_home }}/miniconda/bin/conda"
 
-- name: create miniconda python {{ item }} environment
-  shell: "{{ local_home }}/miniconda/bin/conda create -n 'py{{ item }}' python={{ item }}"
+# - name: create miniconda python {{ item }} environment
+#   shell: "{{ local_home }}/miniconda/bin/conda create -n 'py{{ item }}' python={{ item }}"
+#   args:
+#     creates: "{{ local_home }}/miniconda/envs/py{{ item }}/bin/python"
+#   with_items:
+#     - '3.10'
+#     - '3.12'
+#     - '3.13'
+
+- name: Install uv via official install script (Linux)
+  shell: curl -LsSf https://astral.sh/uv/install.sh | sh
   args:
-    creates: "{{ local_home }}/miniconda/envs/py{{ item }}/bin/python"
-  with_items:
-    - '3.10'
-    - '3.12'
-    - '3.13'
+    creates: ~/.local/bin/uv
+  when: ansible_os_family == 'Debian'
+
+- name: Install uv via Homebrew (macOS)
+  homebrew:
+    name: uv
+    state: present
+  when: ansible_os_family == 'Darwin'

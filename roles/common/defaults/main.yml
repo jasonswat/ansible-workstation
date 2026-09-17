@@ -23,6 +23,7 @@ common_packages:
 - watch
 - wget
 - yamllint
+- yq
 
 # packages only installed on ubuntu
 install_ubuntu_packages:
