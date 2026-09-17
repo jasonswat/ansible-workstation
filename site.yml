@@ -25,6 +25,7 @@
     - {role: keepass, tags: 'keepass', version: 11.0.13}  # Install keepass 
     - {role: displaylink, tags: 'displaylink'}          # Install displaylink drivers for docking station 
     - {role: jetbrains, tags: 'jetbrains', version: 2.4.2.32922}  # Install jetbrains toolbox 
+    - {role: ai-tools, tags: 'ai-tools'}  # Install AI coding tools (opencode)
     # Ubuntu specific roles:
     - {role: conky, tags: 'conky' }  # Conky performace wigit for ubuntu desktop
     - {role: pinta, tags: 'pinta' }  # Ubuntu only - install simple paint application

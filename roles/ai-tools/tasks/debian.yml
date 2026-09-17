@@ -1,0 +1,5 @@
+---
+- name: Install OpenCode via official install script
+  shell: curl -fsSL https://opencode.ai/install | bash
+  args:
+    creates: ~/.opencode/bin/opencode
