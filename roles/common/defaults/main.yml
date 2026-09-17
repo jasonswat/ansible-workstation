@@ -42,10 +42,8 @@ install_ubuntu_packages:
 - git-core
 - git-flow
 - git-extras
-- gnupg-agent
 - gstreamer1.0-alsa
 - gstreamer1.0-plugins-base-apps
-- gstreamer1.0-pulseaudio
 - linux-headers-generic
 - mtr
 - mc
@@ -53,7 +51,6 @@ install_ubuntu_packages:
 - nnn
 - openssh-server
 - pwgen
-- pulseaudio
 - pydf
 - software-properties-common
 - silversearcher-ag
@@ -61,9 +58,15 @@ install_ubuntu_packages:
 - tmux
 - tar
 - unzip
-- ubuntu-restricted-extras
 - vlc
 - xorg
+
+# packages only installed on ubuntu < 26.04 (removed from 26.04 repos)
+install_ubuntu_packages_legacy:
+- gnupg-agent
+- gstreamer1.0-pulseaudio
+- pulseaudio
+- ubuntu-restricted-extras
 
 # packages only installed on macos with brew 
 brew_packages:
