@@ -1,12 +1,20 @@
-- name: Add signing key 
-  apt_key:
-    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc 
-    state: present
+- name: Ensure /etc/apt/keyrings directory exists
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
   become: yes
 
-- name: Add virtualbox repo 
+- name: Add VirtualBox signing key
+  get_url:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    dest: /etc/apt/keyrings/virtualbox.asc
+    mode: '0644'
+  become: yes
+
+- name: Add VirtualBox repo
   apt_repository:
-    repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/virtualbox.asc] https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
     state: present
   become: yes
 
