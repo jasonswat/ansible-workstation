@@ -17,6 +17,16 @@
   apt: pkg={{ install_ubuntu_packages }} state=present
   become: yes
 
+- name: Install wireless-tools on older Ubuntu
+  apt: pkg=wireless-tools state=present
+  become: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version is version('26.04', '<')
+
+- name: Install iw on Ubuntu 26.04+
+  apt: pkg=iw state=present
+  become: yes
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version is version('26.04', '>=')
+
 - name: Remove Ubuntu packages
   apt: pkg={{ remove_ubuntu_packages }} state=absent
   become: yes
