@@ -1,12 +1,20 @@
-- name: Add hashicorp signing key 
-  apt_key:
-    url: https://apt.releases.hashicorp.com/gpg 
-    state: present
+- name: Ensure /etc/apt/keyrings directory exists
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
   become: yes
 
-- name: Add hashicorp repo 
+- name: Add HashiCorp signing key
+  get_url:
+    url: https://apt.releases.hashicorp.com/gpg
+    dest: /etc/apt/keyrings/hashicorp.asc
+    mode: '0644'
+  become: yes
+
+- name: Add HashiCorp repo
   apt_repository:
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/hashicorp.asc] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
     state: present
   become: yes
 

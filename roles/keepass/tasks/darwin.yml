@@ -1,2 +1,2 @@
-- name: install keepassx from homebrew cask 
-  homebrew_cask: name=keepassx state=present
+- name: install keepassxc from homebrew cask 
+  community.general.homebrew_cask: name=keepassxc state=present
