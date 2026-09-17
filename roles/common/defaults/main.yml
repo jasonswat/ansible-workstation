@@ -67,6 +67,11 @@ install_ubuntu_packages_legacy:
 - gstreamer1.0-pulseaudio
 - pulseaudio
 - ubuntu-restricted-extras
+- wireless-tools
+
+# packages only installed on ubuntu >= 26.04 (replacements for removed packages)
+install_ubuntu_packages_26_04:
+- iw
 
 # packages only installed on macos with brew 
 brew_packages:

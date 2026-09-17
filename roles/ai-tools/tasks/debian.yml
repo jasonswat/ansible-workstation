@@ -8,3 +8,8 @@
   shell: curl -fsSL https://gh.io/copilot-install | bash
   args:
     creates: ~/.local/bin/copilot
+
+- name: Install Antigravity CLI via official install script
+  shell: curl -fsSL https://antigravity.google/cli/install.sh | bash
+  args:
+    creates: ~/.local/bin/agy
