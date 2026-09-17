@@ -8,3 +8,6 @@
   homebrew:
     name: anomalyco/tap/opencode
     state: present
+
+- name: Install GitHub Copilot CLI via Homebrew cask
+  homebrew_cask: name=copilot-cli state=present

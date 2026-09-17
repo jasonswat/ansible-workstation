@@ -3,3 +3,8 @@
   shell: curl -fsSL https://opencode.ai/install | bash
   args:
     creates: ~/.opencode/bin/opencode
+
+- name: Install GitHub Copilot CLI via official install script
+  shell: curl -fsSL https://gh.io/copilot-install | bash
+  args:
+    creates: ~/.local/bin/copilot
