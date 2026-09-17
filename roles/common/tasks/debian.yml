@@ -22,13 +22,8 @@
   become: yes
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version is version('26.04', '<')
 
-- name: Install wireless-tools on older Ubuntu
-  apt: pkg=wireless-tools state=present
-  become: yes
-  when: ansible_distribution == "Ubuntu" and ansible_distribution_version is version('26.04', '<')
-
-- name: Install iw on Ubuntu 26.04+
-  apt: pkg=iw state=present
+- name: Install replacement packages on Ubuntu 26.04+
+  apt: pkg={{ install_ubuntu_packages_26_04 }} state=present
   become: yes
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version is version('26.04', '>=')
 

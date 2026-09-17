@@ -1,4 +1,16 @@
 ---
+- name: Ensure ~/bin directory exists
+  file:
+    path: ~/bin
+    state: directory
+    mode: '0755'
+
+- name: Install update-agents script
+  copy:
+    src: update-agents
+    dest: ~/bin/update-agents
+    mode: '0755'
+
 - include_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 - include_tasks: darwin.yml

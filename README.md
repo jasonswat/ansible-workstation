@@ -8,7 +8,7 @@ Tested on github actions [public runners](https://docs.github.com/en/actions/usi
 
 ![workflow](https://github.com/jasonswat/ansible-workstation/actions/workflows/build.yml/badge.svg?branch=dev)-
 
-  - Apt and Brew packages, see [list of packages](https://github.com/jasonswat/ansible-workstation/blob/master/roles/common/defaults/main.yml)
+  - Apt and Brew packages, see [list of packages](https://github.com/jasonswat/ansible-workstation/blob/dev/roles/common/defaults/main.yml)
   - [bash_it](https://github.com/Bash-it/bash-it) - Shell aliases and Terminal hacks
   - [sdkman](https://sdkman.io/) - Version manager for Java, Kotlin, Gradle, and many other java tools
   - [ghostty](https://ghostty.org) - Terminal for mac and linux
@@ -22,7 +22,8 @@ Tested on github actions [public runners](https://docs.github.com/en/actions/usi
   - [megasync](https://mega.io/storage) - Cloud storage to store files between devices
   - [displaylink](https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu) drivers for Dell docking station
   - [opencode](https://opencode.ai) - Open source AI coding agent
-  - [github copilot cli](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) - AI pair programming in your terminal 
+  - [github copilot cli](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) - AI pair programming in your terminal
+  - [antigravity cli](https://antigravity.google/docs/cli/) - Google's AI coding agent (agy) 
 
 ## Pre-requisites
 
