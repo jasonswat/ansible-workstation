@@ -1,0 +1,17 @@
+---
+# Handlers for shell role
+- name: Reload inputrc
+  become: yes
+  ansible.builtin.copy:
+    dest: /etc/profile.d/inputrc.sh
+    content: |
+      #!/bin/sh
+      # Ensure /etc/inputrc is loaded for interactive shells
+      if [ -n "$PS1" ] && [ -f /etc/inputrc ]; then
+        # Try to load settings in interactive shells
+        bind -f /etc/inputrc >/dev/null 2>&1 || true
+      fi
+    owner: root
+    group: root
+    mode: '0644'
+  tags: reload
