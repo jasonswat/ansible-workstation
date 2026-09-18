@@ -13,3 +13,8 @@
   shell: curl -fsSL https://antigravity.google/cli/install.sh | bash
   args:
     creates: ~/.local/bin/agy
+
+- name: Install Cursor Agent CLI via official install script
+  shell: curl -fsS https://cursor.com/install | bash
+  args:
+    creates: ~/.local/bin/agent
