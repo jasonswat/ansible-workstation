@@ -14,3 +14,6 @@
 
 - name: Install Antigravity CLI via Homebrew cask
   homebrew_cask: name=antigravity-cli state=present
+
+- name: Install Cursor IDE via Homebrew cask
+  homebrew_cask: name=cursor state=present

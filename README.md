@@ -23,7 +23,8 @@ Tested on github actions [public runners](https://docs.github.com/en/actions/usi
   - [displaylink](https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu) drivers for Dell docking station
   - [opencode](https://opencode.ai) - Open source AI coding agent
   - [github copilot cli](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) - AI pair programming in your terminal
-  - [antigravity cli](https://antigravity.google/docs/cli/) - Google's AI coding agent (agy) 
+  - [antigravity cli](https://antigravity.google/docs/cli/) - Google's AI coding agent (agy)
+  - [cursor](https://www.cursor.com/) - AI-powered code editor with agent CLI
 
 ## Pre-requisites
 

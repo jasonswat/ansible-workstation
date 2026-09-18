@@ -108,6 +108,32 @@ check_and_update_antigravity() {
     fi
 }
 
+check_and_update_cursor() {
+    print_tool_header "Cursor Agent"
+
+    current_version=$(get_version "cursor-agent --version")
+    echo "Current version: $current_version"
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "Checking for updates via Homebrew..."
+        if command -v brew &> /dev/null; then
+            brew upgrade --cask cursor 2>/dev/null || echo "Already up to date"
+        else
+            echo -e "${YELLOW}Homebrew not found, skipping update${NC}"
+        fi
+    else
+        echo "Updating via official install script..."
+        curl -fsS https://cursor.com/install | bash
+    fi
+
+    new_version=$(get_version "cursor-agent --version")
+    if [[ "$current_version" != "$new_version" ]]; then
+        echo -e "${GREEN}Updated: $current_version -> $new_version${NC}"
+    else
+        echo "Already up to date"
+    fi
+}
+
 main() {
     print_header
 
@@ -117,6 +143,7 @@ main() {
     check_and_update_opencode
     check_and_update_copilot
     check_and_update_antigravity
+    check_and_update_cursor
 
     echo ""
     echo "=========================================="
