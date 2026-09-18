@@ -1,11 +1,6 @@
 name: Run ansible-playbook on Macos and Ubuntu
 
 on:
-  push:
-    branches:
-    - dev
-    paths-ignore:
-      - '**/README.md'
   pull_request:
     branches:
     - main
