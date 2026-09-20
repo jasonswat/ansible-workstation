@@ -34,7 +34,6 @@ install_ubuntu_packages:
 - ca-certificates
 - chrony
 - clamav
-- clamav-daemon
 - bash-completion
 - bluez
 - build-essential
@@ -64,6 +63,7 @@ install_ubuntu_packages:
 
 # packages only installed on ubuntu < 26.04 (removed from 26.04 repos)
 install_ubuntu_packages_legacy:
+- clamav-daemon
 - gnupg-agent
 - gstreamer1.0-pulseaudio
 - pulseaudio

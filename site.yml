@@ -13,17 +13,17 @@
     - {role: common, tags: 'common'}                   # common package and tools, silversearcher, curl, nmap, make, gcc, etc.
     - {role: container, tags: 'container'}             # install container tools 
     - {role: python, tags: 'python'}                   # install miniconda and py3.8, py3.9, and py3.10 envrionments
-    - {role: nodejs, tags: 'nodejs', version: v0.40.3} # Install nvm (node version manager)
+    - {role: nodejs, tags: 'nodejs', version: v0.40.7} # Install nvm (node version manager)
     - {role: sdkman, tags: 'sdkman'}                   # Install sdkman newest version
     - {role: cloud, tags: 'cloud'}                     # gcloud, kubectl, awscli
     - {role: terminal, tags: 'terminal'}               # install ghostty terminal
     - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger latest from main
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode latest
-    - {role: golang, tags: 'golang', version: 1.21.0}  # Install golang
+    - {role: golang, tags: 'golang', version: 1.27.1}  # Install golang
     - {role: megasync, tags: 'megasync'}  # Install Megasync - Cloud storage for syncing accross devices
-    - {role: keepass, tags: 'keepass', version: 11.0.13}  # Install keepass 
-    - {role: displaylink, tags: 'displaylink'}          # Install displaylink drivers for docking station 
+    - {role: keepass, tags: 'keepass'}  # Install keepassxc
+    - {role: displaylink, tags: 'displaylink', version: 6.3}  # Install displaylink drivers for docking station 
     - {role: jetbrains, tags: 'jetbrains', version: 2.4.2.32922}  # Install jetbrains toolbox 
     - {role: ai-tools, tags: 'ai-tools'}  # Install AI coding tools (opencode)
     # Ubuntu specific roles:

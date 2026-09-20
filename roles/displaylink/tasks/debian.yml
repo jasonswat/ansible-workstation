@@ -1,12 +1,49 @@
-- name: Install displaylink apt repository 
+---
+- name: Install dkms (required for DisplayLink)
   apt:
-     deb: https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb
+    name: dkms
+    state: present
   become: yes
 
-- name: Run apt-get update
-  apt: update_cache=yes
+- name: Create Downloads directory
+  file:
+    path: "{{ local_home }}/Downloads"
+    state: directory
+
+- name: Download Synaptics APT repository keyring
+  get_url:
+    url: "https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb"
+    dest: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
+
+- name: Install Synaptics APT repository keyring
+  apt:
+    deb: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
   become: yes
 
-- name: Install displaylink package 
-  apt: pkg=displaylink-driver state=present
+- name: Update apt cache for DisplayLink repo
+  apt:
+    update_cache: yes
   become: yes
+
+- name: Check if displaylink-driver is available
+  shell: apt-cache show displaylink-driver 2>/dev/null
+  register: displaylink_check
+  changed_when: false
+  failed_when: false
+
+- name: Install DisplayLink driver via APT
+  apt:
+    name: displaylink-driver
+    state: present
+  become: yes
+  when: displaylink_check.rc == 0
+
+- name: Report DisplayLink installation status
+  debug:
+    msg: "DisplayLink driver {{ 'installed successfully' if displaylink_check.rc == 0 else 'not available for this Ubuntu version - skipping' }}"
+  when: ansible_distribution_version is version('26.04', '>=')
+
+- name: Remove Synaptics repository keyring deb
+  file:
+    path: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
+    state: absent
