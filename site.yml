@@ -20,7 +20,7 @@
     - {role: tfenv, tags: 'tfenv'}                     # Install tfenv terraform version manger latest from main
     - {role: vim_plugins, tags: 'vim_plugins'}         # setup vim pathogen and sync vim plugins
     - {role: vscode, tags: 'vscode'}                   # Install visualstudiocode latest
-    - {role: golang, tags: 'golang', version: 1.21.0}  # Install golang
+    - {role: golang, tags: 'golang', version: 1.27.1}  # Install golang
     - {role: megasync, tags: 'megasync'}  # Install Megasync - Cloud storage for syncing accross devices
     - {role: keepass, tags: 'keepass', version: 11.0.13}  # Install keepass 
     - {role: displaylink, tags: 'displaylink'}          # Install displaylink drivers for docking station 
