@@ -1,0 +1,29 @@
+---
+- name: Create Downloads directory
+  file:
+    path: "{{ local_home }}/Downloads"
+    state: directory
+
+- name: Download DisplayLink Manager DMG
+  get_url:
+    url: "https://www.synaptics.com/products/displaylink-manager-graphics-connectivity-{{ displaylink_version | replace('.', '') }}?filetype=exe"
+    dest: "{{ local_home }}/Downloads/DisplayLinkManager.dmg"
+
+- name: Mount DisplayLink DMG
+  command: "hdiutil attach {{ local_home }}/Downloads/DisplayLinkManager.dmg -nobrowse"
+  args:
+    creates: /Volumes/DisplayLink\ Manager
+
+- name: Install DisplayLink package
+  command: "sudo installer -pkg '/Volumes/DisplayLink Manager/DisplayLink Manager.pkg' -target /"
+  args:
+    creates: /Applications/DisplayLink\ Manager.app
+
+- name: Unmount DisplayLink DMG
+  command: "hdiutil detach '/Volumes/DisplayLink Manager'"
+  when: "'DisplayLink Manager' in mounted_volumes.stdout"
+
+- name: Remove DisplayLink DMG
+  file:
+    path: "{{ local_home }}/Downloads/DisplayLinkManager.dmg"
+    state: absent

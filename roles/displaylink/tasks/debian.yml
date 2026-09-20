@@ -1,12 +1,26 @@
-- name: Install displaylink apt repository 
+---
+- name: Download DisplayLink APT repository keyring
+  get_url:
+    url: "https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb"
+    dest: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
+
+- name: Install DisplayLink APT repository keyring
   apt:
-     deb: https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb
+    deb: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
   become: yes
 
-- name: Run apt-get update
-  apt: update_cache=yes
+- name: Update APT cache
+  apt:
+    update_cache: yes
   become: yes
 
-- name: Install displaylink package 
-  apt: pkg=displaylink-driver state=present
+- name: Install DisplayLink driver
+  apt:
+    name: displaylink-driver
+    state: present
   become: yes
+
+- name: Remove DisplayLink repository keyring package
+  file:
+    path: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
+    state: absent
