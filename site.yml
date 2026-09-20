@@ -23,7 +23,7 @@
     - {role: golang, tags: 'golang', version: 1.27.1}  # Install golang
     - {role: megasync, tags: 'megasync'}  # Install Megasync - Cloud storage for syncing accross devices
     - {role: keepass, tags: 'keepass', version: 11.0.13}  # Install keepass 
-    - {role: displaylink, tags: 'displaylink'}          # Install displaylink drivers for docking station 
+    - {role: displaylink, tags: 'displaylink', version: 16.2}  # Install displaylink drivers for docking station 
     - {role: jetbrains, tags: 'jetbrains', version: 2.4.2.32922}  # Install jetbrains toolbox 
     - {role: ai-tools, tags: 'ai-tools'}  # Install AI coding tools (opencode)
     # Ubuntu specific roles:

@@ -6,7 +6,7 @@
 
 - name: Download DisplayLink Manager DMG
   get_url:
-    url: "https://www.synaptics.com/products/displaylink-manager-graphics-connectivity-{{ displaylink_version | replace('.', '') }}?filetype=exe"
+    url: "https://www.synaptics.com/products/displaylink-manager-graphics-connectivity-{{ version | replace('.', '') }}?filetype=exe"
     dest: "{{ local_home }}/Downloads/DisplayLinkManager.dmg"
 
 - name: Mount DisplayLink DMG
