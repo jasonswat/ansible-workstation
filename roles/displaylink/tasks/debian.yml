@@ -1,26 +1,28 @@
 ---
-- name: Download DisplayLink APT repository keyring
-  get_url:
-    url: "https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb"
-    dest: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
-
-- name: Install DisplayLink APT repository keyring
+- name: Install dkms (required for DisplayLink)
   apt:
-    deb: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
-  become: yes
-
-- name: Update APT cache
-  apt:
-    update_cache: yes
-  become: yes
-
-- name: Install DisplayLink driver
-  apt:
-    name: displaylink-driver
+    name: dkms
     state: present
   become: yes
 
-- name: Remove DisplayLink repository keyring package
+- name: Create Downloads directory
   file:
-    path: "{{ local_home }}/Downloads/synaptics-repository-keyring.deb"
+    path: "{{ local_home }}/Downloads"
+    state: directory
+
+- name: Download DisplayLink standalone installer
+  get_url:
+    url: "https://www.synaptics.com/products/displaylink-usb-graphics-software-ubuntu-{{ version | replace('.', '') }}?filetype=exe"
+    dest: "{{ local_home }}/Downloads/displaylink-driver.run"
+    mode: '0755'
+
+- name: Install DisplayLink driver via standalone installer
+  command: "{{ local_home }}/Downloads/displaylink-driver.run"
+  become: yes
+  args:
+    creates: /opt/displaylink/DisplayLinkManager
+
+- name: Remove DisplayLink installer
+  file:
+    path: "{{ local_home }}/Downloads/displaylink-driver.run"
     state: absent
